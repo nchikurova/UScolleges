@@ -1,0 +1,38 @@
+body {
+  /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 1em 3em;
+  background: rgb(209, 209, 206);
+}
+
+/* .rect {
+    cursor: pointer;
+  } */
+
+rect:hover {
+  fill: rgb(18, 9, 73);
+  /* opacity: 0.5; */
+}
+
+.axis-label {
+  font-size: 10px;
+  fill: black;
+  text-anchor: middle;
+}
+.d3-tip {
+  position: absolute;
+  text-align: center;
+  /* width: 100px;
+    height: 20px;
+    padding: 2px;
+    font: 12px sans-serif; */
+  background: white;
+  color: black;
+  border: 0px;
+  pointer-events: none;
+  stroke-width: black;
+}
+path.state:hover {
+  stroke-width: 2px;
+  /* fill: #a48894; */
+}
