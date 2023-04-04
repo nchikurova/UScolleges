@@ -1,6 +1,6 @@
 // CONST and GLOBALS
 
-let margin = { top: 20, bottom: 20, left: 75, right: 40 },
+let margin = { top: 20, bottom: 40, left: 75, right: 40 },
   width = 400, // - margin.left - margin.right,
   height = 300 - margin.bottom, // - margin.bottom
   paddingInner = 0.2;
@@ -11,18 +11,27 @@ let margin = { top: 20, bottom: 20, left: 75, right: 40 },
 let svg_bubble;
 let xScale_bubble;
 let yScale_bubble;
+let xAxis;
+let yAxis;
+let tip;
 
 // Aplication state
 let state = {
   data: [],
   selectedState: "All",
+  selectedDebt: "All",
 };
 
 // Load data
 
 d3.csv("../data/UScolleges.csv", d3.autoType).then((raw_data) => {
-  console.log("raw_data", raw_data);
-  state.data = raw_data;
+  // console.log("raw_data", raw_data);
+  state.data = raw_data.filter(
+    (d) => d.median_debt !== null && d.median_earnings !== null
+    //&&
+    //   d.median_debt <= 20000 &&
+    //   d.median_earnings >= 50000
+  );
   init();
 });
 
@@ -39,12 +48,12 @@ function init() {
   yScale_bubble = d3
     .scaleLinear()
     .domain(d3.extent(state.data, (d) => d.median_earnings))
-    .range([height - margin.bottom, margin.top]);
-  console.log(xScale_bubble.domain(), yScale_bubble.domain());
+    .range([height, margin.top]);
+  // console.log(xScale_bubble.domain(), yScale_bubble.domain());
   // AXES
 
-  const xAxis = d3.axisBottom(xScale_bubble).tickFormat(d3.format(".2s"));
-  const yAxis = d3.axisLeft(yScale_bubble).tickFormat(d3.format(".2s"));
+  xAxis = d3.axisBottom(xScale_bubble).tickFormat(d3.format(".2s"));
+  yAxis = d3.axisLeft(yScale_bubble).tickFormat(d3.format(".2s"));
 
   // UI element set up
   // add dropdown (HTML selection) for interaction
@@ -56,11 +65,27 @@ function init() {
     state.selectedState = this.value;
     draw(); //re-draw the graph based on this new selection
   });
+
+  const selectElement2 = d3.select("#dropdown2").on("change", function () {
+    console.log("new selected debt amount is", this.value);
+    //'this' === the selectElement
+    // this.value holds the dropdown value a user just selected
+    state.selectedDebt = this.value;
+    draw(); //re-draw the graph based on this new selection
+  });
   // add in dropdown options from the unique values in the data
+
+  // DATA FOR SELECTED ELEMENTS
+
+  //   .data([
+  //     ...Array.from(new Set(state.data.map(d => d.apt_type))),
+  //     default_selection,
+  // ])
+
   selectElement
     .selectAll("option")
-
     .data([
+      "All",
       "Alabama",
       "Alaska",
       "Arizona",
@@ -123,6 +148,19 @@ function init() {
     .attr("value", (d) => d)
     .text((d) => d);
 
+  selectElement2
+    .selectAll("option")
+    .data([
+      "All",
+      "< $10,000",
+      "$10,000 - $20,000",
+      "$20,000 - $50,000",
+      "> $50,000",
+    ])
+    .join("option")
+    .attr("value", (d) => d)
+    .text((d) => d);
+
   // create an svg element in our main `d3-container` element
   svg_bubble = d3
     .select("#bubble-container")
@@ -154,7 +192,33 @@ function init() {
     .attr("dx", "-4em")
     .attr("writing-mode", "vertical-rl")
     .text("Median Earnings");
+  // TOOLTIP
 
+  const formatNumbers = d3.format(",.2f");
+  tip = d3
+    .tip()
+    .attr("class", "d3-tip")
+    .html((d) => {
+      let text = `<strong>Location: </strong><span 
+    style='color':'black'>${d.state}</span><br>`;
+      text += `
+    <strong>Institution Name: </strong><span>${d.institution_name}</span><br>`;
+      text += `
+    <strong>Cost: </strong><span> $${formatNumbers(d.cost)}</span><br>
+    `;
+      text += `
+    <strong>Median Debt: </strong><span>$${formatNumbers(
+      d.median_debt
+    )}</span><br>
+    `;
+      text += `
+    <strong>Median Earnings: </strong><span>$${formatNumbers(
+      d.median_earnings
+    )}</span><br>
+    `;
+      return text;
+    });
+  svg_bubble.call(tip);
   draw();
   // calls the draw function
 }
@@ -163,13 +227,61 @@ function init() {
  * DRAW FUNCTION
  * we call this everytime there is an update to the data/state
  * */
+
+//"$10,000 - $20,000", "$20,000 - $50,000", "< $50,000"])
 function draw() {
   // filter the data for the selectedParty
   let filteredData = state.data;
   // if there is a selectedType, filter the data before mapping it to our elements
-  if (state.selectedState !== "All") {
-    filteredData = state.data.filter((d) => d.state === state.selectedState);
+  if (state.selectedState !== "All" && state.selectedDebt === "< $10,000") {
+    filteredData = state.data.filter(
+      (d) => d.state === state.selectedState && d.median_debt <= 10000
+    );
+    console.log(filteredData);
+  } else if (
+    state.selectedState !== "All" &&
+    state.selectedDebt === "$10,000 - $20,000"
+  ) {
+    filteredData = state.data.filter(
+      (d) =>
+        d.state === state.selectedState &&
+        d.median_debt > 10000 &&
+        d.median_debt <= 20000
+    );
+  } else if (
+    state.selectedState !== "All" &&
+    state.selectedDebt === "$20,000 - $50,000"
+  ) {
+    filteredData = state.data.filter(
+      (d) =>
+        d.state === state.selectedState &&
+        d.median_debt > 20000 &&
+        d.median_debt <= 50000
+    );
+  } else {
+    filteredData = state.data.filter(
+      (d) => d.state === state.selectedState && d.median_debt > 50000
+    );
   }
+  // update the scale domain (now that our data has changed)
+  yScale_bubble.domain([0, d3.max(filteredData, (d) => d.median_earnings)]);
+
+  // re-draw our yAxix since our yScale is updated with the new data
+  d3.select("g.y-axis").transition().duration(1000).call(yAxis); // this updates the yAxis' scale to be our newly updated one
+
+  xScale_bubble.domain([0, d3.max(filteredData, (d) => d.median_debt)]);
+
+  // re-draw our yAxix since our yScale is updated with the new data
+  d3.select("g.x-axis").transition().duration(1000).call(xAxis);
+
+  // SCALE FOR CIRCLES SIZE
+
+  const sizeScale = d3
+    .scaleSqrt()
+    .domain([0, d3.max(state.data, (d) => d.cost)])
+    .range([2, 10]);
+
+  //   console.log(sizeScale.domain());
 
   const dot = svg_bubble
     .selectAll(".dot")
@@ -181,18 +293,27 @@ function draw() {
         enter
           .append("circle")
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
-          .attr("stroke", "grey")
-          .attr("opacity", 0.8)
-          .attr("fill", "black")
-          .attr("r", 5)
+          .attr("stroke", "black")
+          .attr("opacity", 0.5)
+          .attr("fill", (d) => {
+            if (d.cost !== null) {
+              return "rgb(45, 114, 130)";
+            } else if (d.top_50 === "True") {
+              return "red";
+            } else {
+              return "grey";
+            }
+          })
+          .attr("r", (d) => sizeScale(d.cost))
           .attr("cx", (d) => xScale_bubble(d.median_debt))
           .attr("cy", (d) => margin.bottom + 150)
-
+          .on("mouseover", tip.show)
+          .on("mouseout", tip.hide)
           // initial value - to be transitioned
           .call((enter) =>
             enter
               .transition() // initialize transition
-              //.delay(d => 50 * d.rating) // delay on each element
+              //.delay()// delay on each element
               .duration(1200) // duration 500ms
               .attr("cy", (d) => yScale_bubble(d.median_earnings))
           ),
@@ -204,12 +325,7 @@ function draw() {
       (exit) =>
         exit.call((exit) =>
           //     // exit selections -- all the `.dot` element that no longer match to HTML elements
-          exit
-            .transition()
-            .delay((d) => 10 * d.median_earnings)
-            .duration(500)
-            .attr("cy", height)
-            .remove()
+          exit.transition().delay(100).duration(500).attr("cy", height).remove()
         )
     );
 }

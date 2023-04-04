@@ -1,13 +1,13 @@
 // data load
 // reference for d3.autotype: https://github.com/d3/d3-dsv#autoType
 d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
-  //data.filter((d) => d.cost === "null").remove();
-  console.log(data);
+  // console.log(data);
 
   const newData = data
     .filter((d) => d.top_50 === "True" && d.cost !== null)
     .sort((a, b) => a.cost - b.cost);
-  console.log(newData);
+  // console.log(newData);
+
   /** CONSTANTS */
   // constants help us reference the same values throughout our code
   let margin = { top: 20, bottom: 100, left: 75, right: 40 },
@@ -47,7 +47,6 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
   svg
     .append("g")
     .attr("class", "axis")
-    // .attr("transform", `translate(0, ${height - margin.bottom})`)
     .attr("transform", `translate(0,${height})`)
     .call(xAxis)
     .append("text")
@@ -62,11 +61,12 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .call(yAxis)
     .append("text")
     .attr("class", "axis-label")
-    .attr("y", "30%") //in the middle of line
+    .attr("y", "30%")
     .attr("dx", "-4em")
     .attr("writing-mode", "vertical-rl")
     .text("Cost, $");
 
+  // TOOLTIP
   const tip = d3
     .tip()
     .attr("class", "d3-tip")
@@ -90,18 +90,13 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
   const rect = svg
     .selectAll("rect")
     .attr("class", "bars")
-    //.sort((a, b) => a - b)
     .data(newData)
     .join("rect")
     .attr("y", (d) => yScale(d.cost))
     .attr("x", (d) => xScale(d.institution_name))
     .attr("width", xScale.bandwidth())
     .attr("height", (d) => height - yScale(d.cost))
-    // .attr("height", (d, i) => height - yScale(i))
     .attr("fill", "steelblue")
-    .on("mouseover", (event, d) => {
-      d3.select(event.target).style("filter", "brightness(50%)");
-    })
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 });

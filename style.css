@@ -10,18 +10,23 @@ body {
   } */
 
 rect:hover {
-  fill: rgb(18, 9, 73);
+  fill: rgb(45, 114, 130);
   /* opacity: 0.5; */
 }
 
+.dot:hover {
+  fill: black;
+}
+
 .axis-label {
-  font-size: 10px;
+  font-size: 12px;
   fill: black;
   text-anchor: middle;
 }
 .d3-tip {
   position: absolute;
-  text-align: center;
+  text-align: left;
+  padding: 2%;
   /* width: 100px;
     height: 20px;
     padding: 2px;
