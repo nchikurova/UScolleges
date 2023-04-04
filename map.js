@@ -1,6 +1,6 @@
 let margin_map = { top: 20, bottom: 100, left: 75, right: 40 },
   width_map = 400, // - margin.left - margin.right,
-  height_map = 300 - margin.bottom; // - margin.bottom
+  height_map = 200 - margin.bottom; // - margin.bottom
 
 let svg_map;
 
@@ -40,14 +40,8 @@ function init_map() {
     .attr("transform", "translate(0,0)");
 
   console.log(state1.colleges[0].cost);
-  const aveCost = new Array(state1.colleges.map((d) => d.cost));
-  console.log(aveCost);
-
   //   console.log(state1.colleges.length);
   //   console.log(state1.colleges.state);
-  //   const aveByState = state1.colleges.group(({ state }) => state);
-  //   console.log(aveByState);
-
   const costByState = d3
     .nest()
     .key((d) => d.state)
@@ -55,32 +49,18 @@ function init_map() {
     .entries(state1.colleges);
 
   console.log(costByState);
-  //   const findAveByState = () => {
-  //     for (let i = 0; i < state1.colleges.length; i++) {
-  //       console.log(state1.colleges[i].state);
-  //       let costArray = [];
-  //       const sameState = state1.colleges[i].state;
-  //       let costByState = state1.colleges[i].cost;
-  //       if (sameState === sameState) {
-  //         costByState++;
-  //       } else {
-  //         costByState;
-  //       }
-  //       return costArray;
-  //     }
-  //   };
-  //   console.log(findAveByState);
-  //   console.log();
-  //       const AveCostPerState = state.colleges.reduce((acc, cur) => {
 
-  //         acc + cur.cost
-  //         if (state1.colleges)
-  //       }, [])
-  //   const aveCostByState = new Map(costByState.map((d) => [d.state, +d.cost]));
-  //   console.log(aveCostByState);
-
-  const colorScale = d3.scaleQuantile([0, 39705], d3.schemeBlues[9]);
-
+  const aveCost = new Map(costByState.map((d) => [d.key, d.value]));
+  console.log(aveCost);
+  const max = d3.max(aveCost, (d) => d.value);
+  console.log(max);
+  //   const colorScale = d3
+  //     .scaleQuantile([217, 15031]).
+  //     .range(["#aae2e2", "#2D7282"]);
+  const colorScale = d3
+    .scaleLinear()
+    .domain([217, 15031])
+    .range(["#aae2e2", "#2D7282"]);
   console.log(colorScale.domain());
 
   svg_map
@@ -92,7 +72,7 @@ function init_map() {
     .attr("class", "state")
     .attr("fill", (d) => {
       // console.log("d", d, d.properties.NAME);
-      let value = costByState.get(d.properties.NAME);
+      let value = aveCost.get(d.properties.NAME);
       return value != 0 ? colorScale(value) : "grey";
     })
     .attr("stroke", "black")
