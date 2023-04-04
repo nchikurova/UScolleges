@@ -9,13 +9,31 @@
   <body>
     <h1>Test</h1>
     <!-- <div id="barchart-container"></div> -->
-    <label for="dropdown">Choose state </label>
-    <select id="dropdown" name="dropdown"></select>
-    <label for="dropdown2">Choose debt </label>
-    <select id="dropdown2" name="dropdown2"></select>
-    <div id="bubble-container"></div>
+
+    <div id="map-content">
+      <div></div>
+
+      <div id="bubble-container">
+        <div class="buttons">
+          <!-- <label for="dropdown">Choose state </label> -->
+          <select id="dropdown" name="dropdown" class="filter-buttons"></select>
+          <br />
+          <select
+            id="dropdown2"
+            name="dropdown2"
+            class="filter-buttons"
+          ></select>
+        </div>
+      </div>
+      <div id="map-container">
+        <div class="title">Median Cost of Education by State</div>
+        <div id="hover-content"></div>
+      </div>
+      <div></div>
+    </div>
+
     <br /><br /><br />
-    <div id="map-container"></div>
+
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="barchart.js"></script>
     <script src="bubble.js"></script>

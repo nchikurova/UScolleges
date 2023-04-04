@@ -18,8 +18,8 @@ let tip;
 // Aplication state
 let state = {
   data: [],
-  selectedState: "All",
-  selectedDebt: "All",
+  selectedState: "Choose state",
+  selectedDebt: "Debt amount",
 };
 
 // Load data
@@ -85,7 +85,7 @@ function init() {
   selectElement
     .selectAll("option")
     .data([
-      "All",
+      "Choose state",
       "Alabama",
       "Alaska",
       "Arizona",
@@ -151,7 +151,7 @@ function init() {
   selectElement2
     .selectAll("option")
     .data([
-      "All",
+      "Debt amount",
       "< $10,000",
       "$10,000 - $20,000",
       "$20,000 - $50,000",
