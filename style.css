@@ -1,7 +1,7 @@
 body {
   /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
   font-family: "Source Sans Pro", sans-serif;
-  padding: 1em 3em;
+  padding: 1em 1em;
   background: rgb(209, 209, 206);
   width: 100%;
   margin: 0%;
@@ -12,6 +12,7 @@ body {
   /* line-height: 50px; */
   color: #313738;
   padding: 2% 0% 2% 0%;
+  font-weight: bold;
 }
 .filter-buttons {
   width: 40%;

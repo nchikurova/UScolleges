@@ -80,7 +80,7 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
         <strong>Cost: </strong><span>${d.cost}</span><br>
         `;
       text += `
-        <strong>Meadian Family Income: </strong><span>${d.family_income_median}</span><br>
+        <strong>Median Family Income: </strong><span>${d.family_income_median}</span><br>
         `;
       return text;
     });

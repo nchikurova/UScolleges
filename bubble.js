@@ -18,7 +18,7 @@ let tip;
 // Aplication state
 let state = {
   data: [],
-  selectedState: "Choose state",
+  selectedState: "All states",
   selectedDebt: "Debt amount",
 };
 
@@ -85,7 +85,7 @@ function init() {
   selectElement
     .selectAll("option")
     .data([
-      "Choose state",
+      "All states",
       "Alabama",
       "Alaska",
       "Arizona",
@@ -216,6 +216,9 @@ function init() {
       d.median_earnings
     )}</span><br>
     `;
+      text += `
+    <strong>Top 50: </strong><span>$${d.top_50}</span><br>
+    `;
       return text;
     });
   svg_bubble.call(tip);
@@ -276,10 +279,10 @@ function draw() {
 
   // SCALE FOR CIRCLES SIZE
 
-  const sizeScale = d3
-    .scaleSqrt()
-    .domain([0, d3.max(state.data, (d) => d.cost)])
-    .range([2, 10]);
+  // const sizeScale = d3
+  //   .scaleSqrt()
+  //   .domain([0, d3.max(state.data, (d) => d.cost)])
+  //   .range([2, 10]);
 
   //   console.log(sizeScale.domain());
 
@@ -296,15 +299,14 @@ function draw() {
           .attr("stroke", "black")
           .attr("opacity", 0.5)
           .attr("fill", (d) => {
-            if (d.cost !== null) {
-              return "rgb(45, 114, 130)";
-            } else if (d.top_50 === "True") {
+            // console.log(d.top_50);
+            if (d.top_50 === "True") {
               return "red";
             } else {
-              return "grey";
+              return "rgb(45, 114, 130)";
             }
           })
-          .attr("r", (d) => sizeScale(d.cost))
+          .attr("r", 5) //(d) => sizeScale(d.cost))
           .attr("cx", (d) => xScale_bubble(d.median_debt))
           .attr("cy", (d) => margin.bottom + 150)
           .on("mouseover", tip.show)
