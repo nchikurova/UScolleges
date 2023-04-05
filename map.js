@@ -22,7 +22,7 @@ Promise.all([
   state1.geojson = geojson;
   state1.colleges = colleges;
 
-  console.log("state: ", state1);
+  //   console.log("state: ", state1);
 
   init_map();
 });
@@ -40,7 +40,7 @@ function init_map() {
     .append("g")
     .attr("transform", "translate(0,0)");
 
-  console.log(state1.colleges[0].cost);
+  //   console.log(state1.colleges[0].cost);
   //   console.log(state1.colleges.length);
   //   console.log(state1.colleges.state);
   const costByState = d3
@@ -49,19 +49,20 @@ function init_map() {
     .rollup((v) => d3.median(v, (d) => d.cost))
     .entries(state1.colleges);
 
-  console.log(costByState);
+  //   console.log(costByState);
 
   aveCost = new Map(costByState.map((d) => [d.key, d.value]));
-  console.log(aveCost);
+  //   console.log(aveCost);
 
   //   const colorScale = d3
   //     .scaleQuantile([217, 15031]).
   //     .range(["#aae2e2", "#2D7282"]);
+
   const colorScale = d3
     .scaleLinear()
     .domain([217, 15031])
     .range(["white", "#105b5b"]);
-  console.log(colorScale.domain());
+  //   console.log(colorScale.domain());
   const formatNumbers = d3.format(",.2f");
 
   svg_map
@@ -80,7 +81,7 @@ function init_map() {
 
     .on("mouseover", (d) => {
       // when the mouse rolls over this feature, do this
-      console.log(d);
+      //   console.log(d);
       state1.hover["State"] = `<strong>${d.properties.NAME}</strong>`;
       state1.hover["Median Cost"] = `<strong>$${formatNumbers(
         aveCost.get(d.properties.NAME)

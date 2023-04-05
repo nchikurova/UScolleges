@@ -217,7 +217,7 @@ function init() {
     )}</span><br>
     `;
       text += `
-    <strong>Top 50: </strong><span>$${d.top_50}</span><br>
+    <strong>Top 50: </strong><span>${d.top_50}</span><br>
     `;
       return text;
     });

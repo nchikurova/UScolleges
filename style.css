@@ -29,12 +29,13 @@ body {
 }
 
 rect:hover {
-  fill: rgb(45, 114, 130);
+  fill: rgb(33, 40, 42);
   /* opacity: 0.5; */
 }
 
 .dot:hover {
-  fill: black;
+  /* fill: rgb(33, 40, 42); */
+  opacity: 1;
 }
 
 .axis-label {

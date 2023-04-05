@@ -1,11 +1,11 @@
 // data load
 // reference for d3.autotype: https://github.com/d3/d3-dsv#autoType
 d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
-  // console.log(data);
+  console.log(data);
 
   const newData = data
-    .filter((d) => d.top_50 === "True" && d.cost !== null)
-    .sort((a, b) => a.cost - b.cost);
+    .filter((d) => d.median_earnings >= 80000) // && d.cost !== null)
+    .sort((a, b) => b.median_earnings - a.median_earnings);
   // console.log(newData);
 
   /** CONSTANTS */
@@ -17,16 +17,62 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
 
   /** SCALES */
 
+  const data_majors = [
+    ...Array.from(new Set(newData.map((d) => d.agriculture_major_perc))),
+  ];
+  //       ,
+  //         d.architecture_major_perc,
+  //         d.bio_science_major_perc,
+  //         d.business_marketing_major_perc,
+  //         d.comm_tech_major_perc,
+  //         d.communications_major_perc,
+  //         d.computer_science_major_perc,
+  //         d.construction_major_perc,
+  //         d.consumer_science_major_perc,
+  //         d.culinary_major_perc,
+  //         d.cultural_major_perc,
+  //         d.education_major_perc,
+  //         d.eng_tech_major_perc,
+  //         d.engineering_major_perc,
+  //         d.english_major_perc,
+  //         d.health_medical_major_perc,
+  //         d.history_major_perc,
+  //         d.interdiscipline_major_perc,
+  //         d.language_major_perc,
+  //         d.law_major_perc,
+  //         d.liberal_arts_major_perc,
+  //         d.library_science_major_perc,
+  //         d.math_stats_major_perc,
+  //         d.mechanics_major_perc,
+  //         d.military_major_perc,
+  //         d.parks_rec_major_perc,
+  //         d.philo_relig_major_perc,
+  //         d.phys_science_major_perc,
+  //         d.precision_production_major_perc,
+  //         d.protective_services_major_perc,
+  //         d.psych_major_perc,
+  //         d.public_admin_major_perc,
+  //         d.resources_major_perc,
+  //         d.science_technician_major_perc,
+  //         d.social_science_major_perc,
+  //         d.theology_major_perc,
+  //         d.transportation_major_perc,
+  //         d.vis_performing_arts_major_perc
+  //       )
+  //     )
+  //   ),
+  // ];
+  console.log(data_majors);
   const xScale = d3
     .scaleBand()
     .domain(newData.map((d) => d.institution_name))
     .range([margin.left, width - margin.right])
     .paddingInner(paddingInner);
-  // console.log(xScale.domain());
+  console.log(xScale.domain());
 
   const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(newData, (d) => d.cost)])
+    .domain([0, d3.max(newData, (d) => d.median_earnings)])
     .range([height, margin.top]);
   // console.log(yScale.domain());
 
@@ -35,7 +81,10 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
   const xAxis = d3.axisBottom(xScale).tickValues([]);
 
   // y Axis
-  const yAxis = d3.axisLeft(yScale).tickFormat(d3.format(".2s"));
+  const yAxis = d3
+    .axisLeft(yScale)
+    // .tickFormat(d3.format(".2s"))
+    .ticks(6, ".2s");
 
   /** MAIN CODE */
   const svg = d3
@@ -80,7 +129,7 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
         <strong>Cost: </strong><span>${d.cost}</span><br>
         `;
       text += `
-        <strong>Median Family Income: </strong><span>${d.family_income_median}</span><br>
+        <strong>Median Earnings: </strong><span>${d.median_earnings}</span><br>
         `;
       return text;
     });
@@ -92,11 +141,11 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .attr("class", "bars")
     .data(newData)
     .join("rect")
-    .attr("y", (d) => yScale(d.cost))
+    .attr("y", (d) => yScale(d.median_earnings))
     .attr("x", (d) => xScale(d.institution_name))
     .attr("width", xScale.bandwidth())
-    .attr("height", (d) => height - yScale(d.cost))
-    .attr("fill", "steelblue")
+    .attr("height", (d) => height - yScale(d.median_earnings))
+    .attr("fill", "rgb(45, 114, 130)")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 });
