@@ -24,7 +24,7 @@ let state = {
 
 // Load data
 
-d3.csv("../data/UScolleges.csv", d3.autoType).then((raw_data) => {
+d3.csv("./data/UScolleges.csv", d3.autoType).then((raw_data) => {
   // console.log("raw_data", raw_data);
   state.data = raw_data.filter(
     (d) => d.median_debt !== null && d.median_earnings !== null
@@ -217,7 +217,7 @@ function init() {
     )}</span><br>
     `;
       text += `
-    <strong>Top 50: </strong><span>${d.top_50}</span><br>
+    <strong>Top 50: </strong><span>$${d.top_50}</span><br>
     `;
       return text;
     });

@@ -8,7 +8,7 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .sort((a, b) => b.median_earnings - a.median_earnings);
   console.log(newData);
   const majors = d3.keys(newData[0]).filter((s) => s.includes("major"));
-
+  console.log(majors);
   /** CONSTANTS */
   // constants help us reference the same values throughout our code
   let margin = { top: 20, bottom: 100, left: 75, right: 40 },
@@ -19,7 +19,40 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
 
   let majors2 = [];
 
-  // for (let i = 0; i < newData.length; i++) {
+  // const result = newData.reduce((acc, curr) => {
+  //   const matchingKeys = Object.keys(curr).filter((key) =>
+  //     key.includes("_major_")
+  //   );
+  //   const data = [curr.institution_name];
+  //   matchingKeys.forEach((key) => {
+  //     data.push({ [key]: curr[key] });
+  //   });
+  //   acc.push(data);
+  //   return acc;
+  // }, []);
+
+  const collegeDataObject = newData.reduce((acc, curr) => {
+    const filteredKeys = Object.keys(curr).filter((key) =>
+      key.includes("_major_")
+    );
+    const data = { id: curr.id };
+    for (const key of filteredKeys) {
+      console.log(filteredKeys);
+      data[key] = curr[key];
+    }
+    acc.push(data);
+    return acc;
+  }, []);
+
+  console.log(collegeDataObject);
+
+  // const subgroups = result.forEach((arr) => {
+  //     arr.forEach((college_name) => {
+
+  //     })
+  // })
+
+  // // for (let i = 0; i < newData.length; i++) {
   //   if (
   //     d3
   //       .keys(newData[i])
