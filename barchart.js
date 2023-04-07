@@ -1,12 +1,13 @@
 // data load
 // reference for d3.autotype: https://github.com/d3/d3-dsv#autoType
 d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
-  console.log(data);
+  // console.log(data);
 
   const newData = data
     .filter((d) => d.median_earnings >= 80000) // && d.cost !== null)
     .sort((a, b) => b.median_earnings - a.median_earnings);
-  // console.log(newData);
+  console.log(newData);
+  const majors = d3.keys(newData[0]).filter((s) => s.includes("major"));
 
   /** CONSTANTS */
   // constants help us reference the same values throughout our code
@@ -14,55 +15,67 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     width = 400, // - margin.left - margin.right,
     height = 200 - margin.bottom, // - margin.bottom
     paddingInner = 0.2;
+  // console.log(d3.values(newData[0]).filter((s) => s.includes("major")));
+
+  let majors2 = [];
+
+  // for (let i = 0; i < newData.length; i++) {
+  //   if (
+  //     d3
+  //       .keys(newData[i])
+  //       .filter((s) => s.includes("major") || s.includes("institution"))
+  //   ) {
+  //     majors2.push(d.keys(newData[i]));
+  //   }
+  // }
+  // newData.forEach((d, i) => {
+  //   const setOfKeys = d3.keys(newData[i]);
+  //   if (setOfKeys) {
+  //     setOfKeys.filter(
+  //       (s) => s.includes("major") || s.includes("institution")
+  //     );
+  //   }
+  //   majors2.push(d3.keys(newData[i]));
+  // });
+  // console.log(majors2);
+
+  // const groupByCollege = d3
+  //   .nest()
+  //   .key((d) => d.median_earnings)
+  //   // .rollup(newData, (d) => d.filter((s) => s.includes("major")))
+  //   .entries(newData);
+  // console.log(groupByCollege);
+  // console.log(d3.values(groupByCollege[3]));
+
+  // let majors = [];
+
+  // groupByCollege.forEach((d) => {
+  //   let major = d.values[0].majors;
+  //   if (major !== "") {
+  //     majors.push(major);
+  //   }
+  // });
+  // majors = majors.filter((d) => d !== "");
+  // console.log(newData.values[0]);
+  // console.log(majors);
+  // Once we have extracted and filtered the majors data, we can then map each major to its corresponding median earnings value and create a new array of objects with 'major' and 'median earnings' keys.
+  // We can then use this new array to visualize the data using d3.js.
+  // let majorEarnings = [];
+
+  // newData.forEach((d) => {
+  //   console.log(d.values[0].majors);
+  //   let major = d.values[0].majors;
+  //   let earnings = d.values[0].median_earnings;
+  //   if (major !== "" && earnings !== null) {
+  //     majorEarnings.push({
+  //       major: major,
+  //       medianEarnings: parseInt(earnings), // convert earnings to integer
+  //     });
+  //   }
+  // });
+  // console.log(majorEarnings);
 
   /** SCALES */
-
-  const data_majors = [
-    ...Array.from(new Set(newData.map((d) => d.agriculture_major_perc))),
-  ];
-  //       ,
-  //         d.architecture_major_perc,
-  //         d.bio_science_major_perc,
-  //         d.business_marketing_major_perc,
-  //         d.comm_tech_major_perc,
-  //         d.communications_major_perc,
-  //         d.computer_science_major_perc,
-  //         d.construction_major_perc,
-  //         d.consumer_science_major_perc,
-  //         d.culinary_major_perc,
-  //         d.cultural_major_perc,
-  //         d.education_major_perc,
-  //         d.eng_tech_major_perc,
-  //         d.engineering_major_perc,
-  //         d.english_major_perc,
-  //         d.health_medical_major_perc,
-  //         d.history_major_perc,
-  //         d.interdiscipline_major_perc,
-  //         d.language_major_perc,
-  //         d.law_major_perc,
-  //         d.liberal_arts_major_perc,
-  //         d.library_science_major_perc,
-  //         d.math_stats_major_perc,
-  //         d.mechanics_major_perc,
-  //         d.military_major_perc,
-  //         d.parks_rec_major_perc,
-  //         d.philo_relig_major_perc,
-  //         d.phys_science_major_perc,
-  //         d.precision_production_major_perc,
-  //         d.protective_services_major_perc,
-  //         d.psych_major_perc,
-  //         d.public_admin_major_perc,
-  //         d.resources_major_perc,
-  //         d.science_technician_major_perc,
-  //         d.social_science_major_perc,
-  //         d.theology_major_perc,
-  //         d.transportation_major_perc,
-  //         d.vis_performing_arts_major_perc
-  //       )
-  //     )
-  //   ),
-  // ];
-  console.log(data_majors);
   const xScale = d3
     .scaleBand()
     .domain(newData.map((d) => d.institution_name))
@@ -74,7 +87,19 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .scaleLinear()
     .domain([0, d3.max(newData, (d) => d.median_earnings)])
     .range([height, margin.top]);
-  // console.log(yScale.domain());
+  console.log(yScale.domain());
+  // const colorScaleBar = d3
+  //   .scaleOrdinal()
+  //   .domain([0, 250000])
+  //   .range([
+  //     "#98abc5",
+  //     "#8a89a6",
+  //     "#7b6888",
+  //     "#6b486b",
+  //     "#a05d56",
+  //     "#d0743c",
+  //     "#ff8c00",
+  //   ]);
 
   /** AXIS */
   // x Axis
@@ -102,7 +127,7 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .attr("class", "axis-label")
     .attr("x", "60%")
     .attr("y", "20")
-    .text("Institution Name");
+    .text("Institution");
   svg
     .append("g")
     .attr("class", "y axis")
@@ -111,25 +136,34 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .append("text")
     .attr("class", "axis-label")
     .attr("y", "30%")
-    .attr("dx", "-4em")
+    .attr("dx", "-5em")
     .attr("writing-mode", "vertical-rl")
-    .text("Cost, $");
+    .text("Median Earnings, $");
 
   // TOOLTIP
+
+  const formatNumbers = d3.format(",.2f");
   const tip = d3
     .tip()
     .attr("class", "d3-tip")
     .html((d) => {
-      let text = `<strong>Location: </strong><span 
+      let text = `<strong>Location: </strong><span
         style='color':'black'>${d.state}</span><br>`;
       text += `
         <strong>Institution Name: </strong><span>${d.institution_name}</span><br>`;
 
       text += `
-        <strong>Cost: </strong><span>${d.cost}</span><br>
+        <strong>Cost: </strong><span>${d.eng_tech_major_perc}</span><br>
         `;
       text += `
-        <strong>Median Earnings: </strong><span>${d.median_earnings}</span><br>
+        <strong>Median Earnings: </strong><span>$${formatNumbers(
+          d.median_earnings
+        )}</span><br>
+        `;
+      text += `
+     <strong>Major: </strong><span>${d.architecture_major_perc},${d.bio_science_major_perc},${d.business_marketing_major_perc},
+
+      }</span><br>
         `;
       return text;
     });
@@ -143,9 +177,27 @@ d3.csv("./data/UScolleges.csv", d3.autoType).then((data) => {
     .join("rect")
     .attr("y", (d) => yScale(d.median_earnings))
     .attr("x", (d) => xScale(d.institution_name))
+
     .attr("width", xScale.bandwidth())
     .attr("height", (d) => height - yScale(d.median_earnings))
     .attr("fill", "rgb(45, 114, 130)")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 });
+// adding button 'Read more' source:
+// https://www.w3schools.com/howto/howto_js_read_more.asp
+function readMore() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "See the list of colleges";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}

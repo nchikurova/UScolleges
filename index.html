@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>US Colleges</h1>
-    <div id="line-container"></div>
+
     <div id="map-content">
       <div></div>
 
@@ -29,11 +29,65 @@
         <div id="hover-content"></div>
       </div>
     </div>
-
-    <div id="barchart-container"></div>
+    <div id="barchart-content">
+      <div></div>
+      <div id="barchart-container"></div>
+      <div id="line-container"></div>
+      <div></div>
+    </div>
+    <div>
+      <p>
+        <span id="dots">...</span
+        ><span id="more">
+          '<strong>Medical</strong> College of Wisconsin', <br />'Albany
+          <strong>Medical</strong> College', <br />'A T Still University of
+          <strong>Health Sciences</strong> ',<br />
+          'West Virginia School of Osteopathic <strong>Medicine</strong>',
+          <br />'University of Massachusetts <strong>Medical</strong> School
+          Worcester', <br />'New York <strong>Medical</strong> College',
+          <br />'Rosalind Franklin University of <strong>Medicine</strong> and
+          Science', <br />'Philadelphia College of <strong>Osteopathic</strong>
+          <strong>Medicine</strong>',<br />'University of North Texas
+          <strong>Health Science</strong> Center', <br />'Baylor College of
+          <strong>Medicine</strong>',<br />
+          'Meharry <strong>Medical</strong> College', <br />'Western University
+          of <strong>Health Sciences</strong>',<br />
+          'SUNY Downstate <strong>Medical</strong> Center', <br />'University of
+          California-San Francisco', <br />'Midwestern University-Downers
+          Grove', <br />'Midwestern University-Glendale',<br />
+          'MCPHS University', <br />'Upstate
+          <strong>Medical</strong> University', <br />'St Louis College of
+          <strong>Pharmacy</strong>',<br />
+          'Samuel Merritt University',<br />
+          'Albany College of
+          <strong>Pharmacy and Health Sciences</strong>',<br />
+          'University of California-Hastings College of Law', <br />'Brooklyn
+          Law School', <br />'Salus University', <br />'Massachusetts Institute
+          of Technology', <br />'United States Merchant Marine Academy',<br />
+          <br />"St Paul's School of Nursing-Queens", <br />'New England College
+          of Optometry', <br />'Cochran School of Nursing', <br />'Harvard
+          University',<br />
+          'SUNY College of Optometry', <br />"St Paul's School of Nursing-Staten
+          Island", <br />'California Western School of Law', <br />'Los Angeles
+          County College of Nursing and Allied Health',<br />
+          'University of the Sciences',<br />
+          'Babson College', <br />'Georgetown University', <br />'Stevens
+          Institute of Technology', <br />'Helene Fuld College of Nursing',<br />
+          'Rensselaer Hartford Graduate Center Inc', <br />'Rensselaer
+          Polytechnic Institute', <br />'University of Texas Southwestern
+          <strong>Medical</strong> Center', <br />'Illinois College of
+          Optometry', 'California Maritime Academy', <br />'Stanford
+          University', <br />'University of Maryland-Baltimore'
+        </span>
+        <button onclick="readMore()" id="myBtn">
+          See list of colleges with the most Median Earnings
+        </button>
+      </p>
+    </div>
     <br /><br /><br />
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="https://d3js.org/d3-array.v2.min.js"></script> -->
     <script src="barchart.js"></script>
     <script src="bubble.js"></script>
     <script src="map.js"></script>

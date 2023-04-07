@@ -94,6 +94,41 @@ path.state:hover {
       "bubble-container";
   }
 }
+
+/* Barchart content*/
+#barchart-content {
+  display: grid;
+  grid-template-columns: 0.1fr 5fr 4fr 0.1fr;
+  column-gap: 3%;
+  /* width: 90vw; */
+  /* height: 60vh; */
+}
+@media only screen and (max-width: 700px) {
+  #barchart-content {
+    grid-template-columns: 1fr;
+    padding: 2em 3em;
+    grid-template-areas:
+      "barchart-container"
+      "linechart-container";
+  }
+}
+#myBtn {
+  width: 40%;
+  max-width: 200px;
+
+  font-size: 15px;
+  background-color: #f8f3f3;
+  color: rgb(53, 52, 52);
+  padding: 5px;
+  margin: 5px 5px 2.5px 0px;
+  border: 1px solid rgb(12, 12, 12);
+  outline-color: rgb(7, 7, 7);
+  font-weight: 600;
+  /* border-style: solid;
+  border-radius: 0%;
+  background-color: #c0c0be; */
+}
+
 /*   
   #map-title {
     text-align: center;

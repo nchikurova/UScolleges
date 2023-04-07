@@ -32,7 +32,7 @@ d3.csv("./data/UScolleges.csv", (d) => ({
   median_earnings: +d.median_earnings,
   name: d.institution_name,
 })).then((raw_data2) => {
-  console.log("raw_data", raw_data2);
+  //   console.log("raw_data", raw_data2);
   data2 = raw_data2.filter(
     (d) => d.sat_math_quartile_1 !== 0 && d.median_earnings !== 0
   );
@@ -47,7 +47,7 @@ d3.csv("./data/UScolleges.csv", (d) => ({
     .scaleLinear()
     .domain([0, d3.max(data2, (d) => d.sat_math_quartile_1)])
     .range([margin_line.left, width_line - margin_line.right]);
-  console.log(xScale_line.domain());
+  //   console.log(xScale_line.domain());
   const yScale_line = d3
     .scaleLinear()
     .domain(d3.extent(data2, (d) => d.median_earnings))
