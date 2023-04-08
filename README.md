@@ -34,9 +34,7 @@ This visualization should help explore the following concerns:
 
 Since student loan rates depend on many factors such as college, state, and requirements from student loans companies, every dept/loan will be paid off in a different period of time. Therefore, for my next visualization, I decided to compare the median earnings and median debt in colleges per state. The user has a choice of the amount of debt they want to explore and how this amount will relate to the median earnings in each university. In this case, user will have an ability to choose the ratio between debt and future earnings.
 
-Initially, I filtered the data only by state and tried to make the size of the circles correspond to the cost of college. Because of the large amount of overlapping circles the visualization looked cluttered and it was hard to hover over the circles to read additional information about each college (see screenshots below). The different size of the circles didn't help either: there are many null values for cost of the colleges, but I did not want to exclude these data points from the chart.
-
-![](/data/cluttered_chart.png) 
+Initially, I filtered the data only by state and tried to make the size of the circles correspond to the cost of college. Because of the large amount of overlapping circles the visualization looked cluttered and it was hard to hover over the circles to read additional information about each college. The different size of the circles didn't help either: there are many null values for cost of the colleges, but I did not want to exclude these data points from the chart.
 
 So, the next step was to sort data by the amount of debt. I think there are just enough circles per selection on the page, so it is easier for the user to explore their options.
 
@@ -45,10 +43,16 @@ Finally, I colored the US News top 50 data points with red, so the user can see 
 # Limitations & expectations
 Not each state has colleges from the US News top 50 list. So, there is a chance that user will not see them. To explore more affordable options further, I would need to create another visualization or think about adding some features to this one.
 
-## Barchart: *Name*
+## Bar chart: *Name*
 file: `barchart.js`
 
-The barchart is used to visualize the top majors across colleges with median earnings of more than $80,000. Firstly, I filtered the data by median earnings value, leaving only the colleges with earnings greater than $80,000, which totalled 46 colleges. Then, I added up the percentage of each major to identify the top 10. These were then filtered and displayed in the bar chart.
+Initially, I had an idea of creating a stacked bar chart, where each college would be represented as a rectangle and the majors would be portrayed by different colors. However, I realized that there would be too many colors displayed, making it difficult for the viewr to read the visualization. Therefore, I decided to use a simpler approach and create a bar chart to display the top 10 majors across colleges with median earning of more than $80,000.
+
+Firstly, I filtered the data by median earnings value, leaving only the colleges with earnings greater than $80,000, which totalled 46 colleges. Then, I added up the percentage of each major to identify the top 10. These were then filtered and displayed in the bar chart.
+
+## Scatter plot: *Name*
+file:`SATchart.js`
+
 
 
 
