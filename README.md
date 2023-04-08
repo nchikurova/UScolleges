@@ -37,6 +37,7 @@ Since student loan rates depend on many factors such as college, state, and requ
 Initially, I filtered the data only by state and tried to make the size of the circles correspond to the cost of college. Because of the large amount of overlapping circles the visualization looked cluttered and it was hard to hover over the circles to read additional information about each college (see screenshots below). The different size of the circles didn't help either: there are many null values for cost of the colleges, but I did not want to exclude these data points from the chart.
 
 ![](/data/cluttered_chart.png) 
+
 So, the next step was to sort data by the amount of debt. I think there are just enough circles per selection on the page, so it is easier for the user to explore their options.
 
 Finally, I colored the US News top 50 data points with red, so the user can see other colleges next to these data points that could be more affordable with the same potential income.
@@ -47,7 +48,7 @@ Not each state has colleges from the US News top 50 list. So, there is a chance 
 ## Barchart: *Name*
 file: `barchart.js`
 
-The barchart is used to visualize top majors across colleges with the median earnings more than $80,000. First, I filtered data by median earnings value leaving colleges with earnings more than $80,000, which was 46 colleges. I have tried 
+The barchart is used to visualize the top majors across colleges with median earnings of more than $80,000. Firstly, I filtered the data by median earnings value, leaving only the colleges with earnings greater than $80,000, which totalled 46 colleges. Then, I added up the percentage of each major to identify the top 10. These were then filtered and displayed in the bar chart.
 
 
 
