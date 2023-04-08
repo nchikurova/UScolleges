@@ -34,7 +34,7 @@ This visualization should help explore the following concerns:
 
 Since student loan rates depend on many factors such as college, state, and requirements from student loans companies, every dept/loan will be paid off in a different period of time. Therefore, for my next visualization, I decided to compare the median earnings and median debt in colleges per state. The user has a choice of the amount of debt they want to explore and how this amount will relate to the median earnings in each university. In this case, user will have an ability to choose the ratio between debt and future earnings.
 
-Initially, I filtered the data only by state and tried to make the size of the circles correspond to the cost of college. Because of the large amount of overlapping circles the visualization looked cluttered and it was hard to hover over the circles to read additional information about each college. The different size of the circles didn't help either: there are many null values for cost of the colleges, but I did not want to exclude these data points from the chart.
+Initially, I filtered the data only by state and tried to make the size of the circles correspond to the cost of college. Because of the large amount of overlapping circles the visualization looked cluttered and it was hard to hover over the circles to read additional information about each college (see screenshots below). The different size of the circles didn't help either: there are many null values for cost of the colleges, but I did not want to exclude these data points from the chart.
 
 So, the next step was to sort data by the amount of debt. I think there are just enough circles per selection on the page, so it is easier for the user to explore their options.
 
@@ -42,6 +42,9 @@ Finally, I colored the US News top 50 data points with red, so the user can see 
 
 # Limitations & expectations
 Not each state has colleges from the US News top 50 list. So, there is a chance that user will not see them. To explore more affordable options further, I would need to create another visualization or think about adding some features to this one.
+
+## Barchart: *Name*
+file: `barchart.js`
 
 
 
