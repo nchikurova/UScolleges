@@ -36,8 +36,8 @@ d3.csv("./data/UScolleges.csv", (d) => ({
   data2 = raw_data2.filter(
     (d) => d.sat_math_quartile_1 !== 0 && d.median_earnings !== 0
   );
-
-  const width_line = 500,
+  console.log(data2);
+  let width_line = 400,
     height_line = 300,
     margin_line = { top: 20, bottom: 50, left: 60, right: 40 },
     radius = 3;
@@ -60,10 +60,10 @@ d3.csv("./data/UScolleges.csv", (d) => ({
 
   // create an svg element in our main `d3-container` element
   const svg_line = d3
-    .select("#line-container")
+    .select("#SAT-container")
     .append("svg")
-    .attr("width", width_line)
-    .attr("height", height_line);
+    .attr("viewBox", "0 0 400 300")
+    .attr("transform", "translate(0,0)");
 
   // add the xAxis
   svg_line
@@ -104,28 +104,53 @@ d3.csv("./data/UScolleges.csv", (d) => ({
     .selectAll(".dot")
     .data(data2, (d) => d.name)
     .join("circle")
-    .attr("class", "dot") // Note: this is important so we can identify it in future updates
+    .attr("class", "dot")
+    .attr("fill", "#806a98")
+    .attr("opacity", 0.3) // Note: this is important so we can identify it in future updates
     .attr("r", radius)
     .attr("cy", (d) => yScale_line(d.median_earnings)) // initial value - to be transitioned
     .attr("cx", (d) => xScale_line(d.sat_math_quartile_1));
 
-  //   svg_line
-  //     .selectAll(".dot")
-  //     .data(data2, (d) => d.name)
-  //     .join("circle")
-  //     .attr("class", "dot") // Note: this is important so we can identify it in future updates
-  //     .attr("r", radius)
-  //     .attr("fill", "blue")
-  //     .attr("cy", (d) => yScale_line(d.sat_math_quartile_2)) // initial value - to be transitioned
-  //     .attr("cx", (d) => xScale_line(d.median_earnings));
-  //   svg_line
-  //     // .append("path")
-  //     .selectAll("path.trend")
-  //     .data(data2)
-  //     .join("path")
-  //     .attr("d", (d) => lineFunc(d))
-  //     .attr("fill", "black");
-  //   // .enter();
-  // .append("path")
-  // .attr("class", "trend");
+  svg_line
+    .append("line")
+    .attr("stroke", "#801322")
+    // .attr("stroke-width", 3)
+    .style("stroke-dasharray", "3, 3")
+    .attr("x1", 185)
+    .attr("y1", height_line - margin_line.bottom)
+    .attr("x2", width + 20)
+    .attr("y2", 50);
+  var regLine = d3
+    .line()
+    .xScale_line((d) => xScale_line(d.sat_math_quartile_1))
+    .yScale_line((d) => yScale_line(d.median_earnings));
+
+  // Derive a linear regression
+  var regression = ss.linearRegression(
+    data2.map(function (d) {
+      return [
+        +d.items[[0].indexOf("sat_math_quartile_1")],
+        +d.items[[1].indexOf("median_earnings")],
+      ];
+    })
+  );
+
+  var lin = ss.linearRegressionLine(regression);
+
+  // Create a line based on the beginning and endpoints of the range
+  var lindata = xScale_line.domain().map(function (x) {
+    return {
+      SAT: xScale_line,
+      Earnings: lin(+xScale_line),
+    };
+  });
+
+  svg_line
+    .append("path")
+    .datum(lindata)
+    .attr("class", "reg")
+    .style("stroke-dasharray", "3, 3")
+    .attr("stroke", "#319455")
+    .attr("stroke-width", 1)
+    .attr("d", regLine);
 });

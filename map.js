@@ -61,9 +61,49 @@ function init_map() {
   const colorScale = d3
     .scaleLinear()
     .domain([217, 15031])
-    .range(["white", "#105b5b"]);
+    .range(["white", "#5b407a"]);
   //   console.log(colorScale.domain());
-  const formatNumbers = d3.format(",.2f");
+  const formatNumbersMap = d3.format(",.2f");
+  // LEGENDS
+  const keys = ["8k", "9k", "10k", "12k", "14k", "16k", "18k"];
+  const legendColor = d3
+    .scaleOrdinal()
+    .domain(keys)
+    .range([
+      "#a697b7",
+      "#9e8eb0",
+      "#9584a9",
+      "#7d6795",
+      "#5e437c",
+      "#533673",
+      "#321159",
+    ]);
+  svg_map
+    .selectAll("myrect")
+    .data(keys)
+    .enter()
+    .append("rect")
+    .attr("width", 30)
+    .attr("height", 10)
+    .attr("y", 280)
+    .attr("x", (d, i) => 140 + i * 30)
+    .style("fill", (d) => legendColor(d))
+    .attr("stroke", "black")
+    .attr("stroke-width", "1px")
+    .attr("stroke-opacity", 1);
+
+  svg_map
+    .selectAll("mylabels")
+    .data(keys)
+    .enter()
+    .append("text")
+    .style("font-size", 12)
+    .attr("y", 300)
+    .attr("x", (d, i) => 150 + i * 30)
+    .style("fill", "black")
+    .text((d) => d)
+    .style("text-anchor", "center")
+    .style("alignment-baseline", "middle");
 
   svg_map
     .selectAll(".state")
@@ -83,7 +123,7 @@ function init_map() {
       // when the mouse rolls over this feature, do this
       //   console.log(d);
       state1.hover["State"] = `<strong>${d.properties.NAME}</strong>`;
-      state1.hover["Median Cost"] = `<strong>$${formatNumbers(
+      state1.hover["Median Cost"] = `<strong>$${formatNumbersMap(
         aveCost.get(d.properties.NAME)
       )}</strong>`;
       draw_map(); // re-call the draw function when we set a new hoveredState

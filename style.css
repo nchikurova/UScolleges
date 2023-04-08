@@ -6,12 +6,38 @@ body {
   width: 100%;
   margin: 0%;
 }
+#w-title {
+  background-color: #b7baba;
+  padding: 0;
+  margin: 0;
+
+  text-align: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+#intro-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #2e2d2d;
+  /* color: rgb(209, 209, 206); */
+  padding: 3% 0% 2% 0%;
+}
+#intro-title2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #2e2d2d;
+  padding: 2% 0% 2% 0%;
+}
+
 .title {
   font-size: 25px;
   font-weight: 300;
-  /* line-height: 50px; */
+  text-align: center;
   color: #313738;
-  padding: 2% 0% 2% 0%;
+  padding: 4% 0% 4% 0%;
   font-weight: bold;
 }
 .filter-buttons {
@@ -29,8 +55,11 @@ body {
 }
 
 rect:hover {
-  fill: rgb(33, 40, 42);
+  fill: rgb(76, 53, 84);
   /* opacity: 0.5; */
+}
+rect {
+  border: 1px solid rgb(12, 12, 12);
 }
 
 .dot:hover {
@@ -61,16 +90,8 @@ path.state:hover {
   fill: #353434;
 }
 .row {
-  /* position: absolute; */
   font-size: large;
-  /* font-weight: bold; */
   text-align: left;
-  /* padding: 2%; */
-  /* width: 100px;
-    height: 20px;
-    padding: 2px;
-    font: 12px sans-serif; */
-  /* background: white; */
   color: black;
   border: 0px;
   pointer-events: none;
@@ -80,7 +101,7 @@ path.state:hover {
 /* Map content*/
 #map-content {
   display: grid;
-  grid-template-columns: 0.1fr 5fr 4fr 0.1fr;
+  grid-template-columns: 0.1fr 4fr 5fr 0.1fr;
   column-gap: 3%;
   /* width: 90vw; */
   /* height: 60vh; */

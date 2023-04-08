@@ -7,12 +7,28 @@
     <title>UScolleges</title>
   </head>
   <body>
-    <h1>US Colleges</h1>
+    <div id="w-title">
+      <div></div>
+      <div>
+        <div id="intro-title">Is College Worth the Debt?</div>
+        <div id="intro-title2">Exploring the Value of Higher Education</div>
+      </div>
+      <div></div>
+    </div>
 
     <div id="map-content">
       <div></div>
 
+      <div id="map-container">
+        <div class="title">Median Cost of Education by State</div>
+
+        <p>Hover over the state to see the Median Cost of Higher Education</p>
+        <div id="hover-content"></div>
+      </div>
       <div id="bubble-container">
+        <div class="title">
+          The ratio between Median Earnings and Median Debt of a given college
+        </div>
         <div class="buttons">
           <!-- <label for="dropdown">Choose state </label> -->
           <select id="dropdown" name="dropdown" class="filter-buttons"></select>
@@ -24,20 +40,25 @@
           ></select>
         </div>
       </div>
-      <div id="map-container">
-        <div class="title">Median Cost of Education by State</div>
-        <div id="hover-content"></div>
-      </div>
+      <div></div>
     </div>
-    <div id="stackedbar"></div>
+    <br />
+    <!-- <div id="stackedbar"></div> -->
     <div id="barchart-content">
       <div></div>
-      <div id="barchart-container"></div>
-      <div id="line-container"></div>
+      <div id="barchart-container">
+        <div class="title">
+          Top Majors across the Colleges with the Median Earnings more than
+          $80,000
+        </div>
+      </div>
+      <div id="SAT-container">
+        <div class="title">Title for SAT scores</div>
+      </div>
       <div></div>
     </div>
     <div>
-      <p>
+      <!-- <p>
         <span id="dots">...</span
         ><span id="more">
           '<strong>Medical</strong> College of Wisconsin', <br />'Albany
@@ -83,18 +104,19 @@
         <button onclick="readMore()" id="myBtn">
           See list of colleges with the most Median Earnings
         </button>
-      </p>
+      </p> -->
     </div>
     <br /><br /><br />
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/simple-statistics@7.8.2/dist/simple-statistics.min.js"></script>
     <!-- <script src="https://d3js.org/d3-array.v2.min.js"></script> -->
     <script src="barchart.js"></script>
-    <script src="stackedbar.js"></script>
+    <!-- <script src="stackedbar.js"></script> -->
     <script src="bubble.js"></script>
     <script src="map.js"></script>
-    <script src="linechart.js"></script>
+    <script src="SATchart.js"></script>
 
-    <script src="./data/d3-tip.js"></script>
+    <script src="./lib/d3-tip.js"></script>
   </body>
 </html>

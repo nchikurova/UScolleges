@@ -1,0 +1,47 @@
+,institution_name,agriculture_major_perc,resources_major_perc,architecture_major_perc,cultural_major_perc,communications_major_perc,comm_tech_major_perc,computer_science_major_perc,culinary_major_perc,education_major_perc,engineering_major_perc,eng_tech_major_perc,language_major_perc,consumer_science_major_perc,law_major_perc,english_major_perc,liberal_arts_major_perc,library_science_major_perc,bio_science_major_perc,math_stats_major_perc,military_major_perc,interdiscipline_major_perc,parks_rec_major_perc,philo_relig_major_perc,theology_major_perc,phys_science_major_perc,science_technician_major_perc,psych_major_perc,protective_services_major_perc,public_admin_major_perc,social_science_major_perc,construction_major_perc,mechanics_major_perc,precision_production_major_perc,transportation_major_perc,vis_performing_arts_major_perc,health_medical_major_perc,business_marketing_major_perc,history_major_perc
+232,University of California-Hastings College of Law,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+261,University of California-San Francisco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+271,California Maritime Academy,0,0,0,0,0,0,0,0,0,0.1149,0.1782,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1609,0,0,0,0.408,0,0,0.1379,0
+272,California Western School of Law,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+303,Western University of Health Sciences,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+416,Los Angeles County College of Nursing and Allied Health,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+519,Samuel Merritt University,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+698,Rensselaer Hartford Graduate Center Inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+758,Georgetown University,0,0,0,0.0146,0,0,0.0049,0,0,0,0,0.0552,0,0,0.066,0.0151,0,0.0541,0.0168,0,0.0557,0,0.0124,0,0.013,0,0.0525,0,0,0.3505,0,0,0,0,0.0124,0.0952,0.1617,0.02
+1071,Midwestern University-Downers Grove,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1109,Rosalind Franklin University of Medicine and Science,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1112,Illinois College of Optometry,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1694,University of Maryland-Baltimore,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+1729,Babson College,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+1776,Harvard University,0,0.0116,0,0.0237,0,0,0.0276,0,0,0.0353,0,0.0309,0,0,0.0397,0.0287,0,0.1385,0.0646,0,0.0105,0,0.0155,0,0.053,0,0.0552,0,0,0.3554,0,0,0,0,0.0265,0,0,0.0833
+1795,MCPHS University,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0169,0,0,0,0,0,0,0,0,0.0012,0,0,0,0,0,0,0,0,0.9819,0,0
+1797,Massachusetts Institute of Technology,0,0,0.0182,0,0.0058,0,0.1785,0,0,0.4395,0,0,0,0,0.001,0.0067,0,0.0893,0.0614,0,0.0345,0,0,0,0.0998,0,0,0,0,0.0288,0,0,0,0,0.001,0,0.0355,0
+1799,University of Massachusetts Medical School Worcester,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1814,New England College of Optometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2173,A T Still University of Health Sciences,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2222,St Louis College of Pharmacy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2429,Stevens Institute of Technology,0,0,0,0,0,0,0.0631,0,0,0.6509,0.0533,0,0,0,0.002,0,0,0.0533,0.0197,0,0,0,0,0,0.0118,0,0,0,0,0.0059,0,0,0,0,0.0355,0,0.1045,0
+2475,Albany College of Pharmacy and Health Sciences,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2477,Albany Medical College,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2504,Brooklyn Law School,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2514,St Paul's School of Nursing-Queens,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2523,Cochran School of Nursing,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2583,Helene Fuld College of Nursing,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2650,New York Medical College,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2681,Rensselaer Polytechnic Institute,0,0.0023,0.0332,0,0.027,0,0.0943,0,0,0.5386,0.0402,0,0,0,0,0,0,0.0556,0.0294,0,0.0216,0,0.0015,0,0.058,0,0.0077,0,0,0.0039,0,0,0,0,0.024,0.0062,0.0564,0
+2707,St Paul's School of Nursing-Staten Island,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2734,SUNY College of Optometry,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2737,SUNY Downstate Medical Center,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+2740,Upstate Medical University,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0085,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.9915,0,0
+2757,United States Merchant Marine Academy,0,0,0,0,0,0,0,0,0,0.5124,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.4876,0,0,0,0
+3437,Salus University,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3475,Philadelphia College of Osteopathic Medicine,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3476,University of the Sciences,0,0.0022,0,0,0,0,0.0022,0,0,0,0,0,0,0,0,0,0,0.1148,0,0,0,0.0221,0,0,0.0221,0,0.0155,0,0,0,0,0,0,0,0,0.8212,0,0
+3712,Meharry Medical College,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3781,Baylor College of Medicine,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3921,University of Texas Southwestern Medical Center,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+3937,University of North Texas Health Science Center,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4227,West Virginia School of Osteopathic Medicine,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4266,Medical College of Wisconsin,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4388,Stanford University,0,0,0,0.0319,0.0163,0,0.0795,0,0,0.1584,0.0325,0.0277,0,0,0.038,0,0,0.0651,0.0331,0,0.1657,0,0.0084,0,0.0476,0,0.0476,0,0.0151,0.1741,0,0,0,0,0.0229,0,0,0.0361
+5223,Midwestern University-Glendale,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

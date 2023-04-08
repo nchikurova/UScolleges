@@ -303,7 +303,7 @@ function draw() {
             if (d.top_50 === "True") {
               return "red";
             } else {
-              return "rgb(45, 114, 130)";
+              return "#a08ab9";
             }
           })
           .attr("r", 5) //(d) => sizeScale(d.cost))
