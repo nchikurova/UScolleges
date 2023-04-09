@@ -73,7 +73,8 @@ If I had more time, I would create interactive charts that allow users to select
 
 Additional Data Analysis and Wrangling can be found in this [Jupyter Notebook](/data/Wrangling%20College%20dataset.ipynb).
 
-
+CODE:
+To make this code cleaner I can rewrite it using classes. In this case, all variables like `svg`, `width`, `height`, `text`, `tip()`, etc. could have the same names and be accessed in local scopes using `this`.
 
 
 
