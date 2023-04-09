@@ -56,6 +56,10 @@ file:`SATchart.js`
 
 ------Keep in mind that correlation does not necessarily imply causation, so even if you find a strong negative correlation between SAT scores and unemployment rate, it does not mean that higher SAT scores directly cause lower unemployment rates. There may be other factors at play that affect both SAT scores and employment outcomes.-----
 
+If your research question is specifically focused on whether a high SAT score in general is related to better employment outcomes, then calculating the median of the sum of the percentiles for math, verbal, and writing would serve the question best, as it provides a single value for overall SAT score that you can use to explore the relationship with unemployment rate.
+
+However, if you want to investigate whether individual SAT scores in math, verbal, or writing are more strongly related to employment outcomes, then using the separate percentiles for each subject would be more appropriate. This approach would allow you to explore the relationship between each individual SAT score and unemployment rate separately, and to compare the strength of these relationships.=============
+
 + not all colleges requite sat scores
 
 # Choosing titles
