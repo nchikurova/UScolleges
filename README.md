@@ -13,7 +13,7 @@ Her questions include:
 
 ## Visualizations and their purposes
 
-# Map: *Median Cost of Education by State* 
+# *Median Cost of Education by State* 
 file: `map.js`
 
 Since the hypothetical high-schooler does not have a particular state in mind, I decided to visualize the median cost of colleges per state, where the cost is represented by color. The darker the shade of the color the higher the median cost of education.
@@ -23,7 +23,7 @@ I think it is a good start for exploration to have an idea which states are more
 ## Limitations & expectations
 Some of the datapoints are missing, and there are different colleges with both low and very high costs in each state. Therefore, the median costs in each state are closer to each other than I expected. For example, I would expect California to have a higher median cost value than most states; however, the value is only around $12,000 while Vermont's median cost is around $18,000. For deeper analysis of the median cost, we should probably look at the number of colleges in each state and also fill in the null values.
 
-# Bubble chart: *Median Earnings vs Median Debt*
+# *Median Earnings vs Median Debt*
 file: `bubble.js`
 
 This visualization should help explore the following concerns:
@@ -45,14 +45,14 @@ Finally, I colored the US News top 50 data points with red, so the user can see 
 ## Limitations & expectations
 Not each state has colleges from the US News top 50 list. So, there is a chance that user will not see them. To explore more affordable options further, I would need to create another visualization or think about adding some features to this one.
 
-# Bar chart: *Top Majors across Colleges with Median Earnings above $80,000*
+# *Top Majors across Colleges with Median Earnings above $80,000*
 file: `barchart.js`
 
 Initially, I had an idea of creating a stacked bar chart, where each college would be represented as a rectangle and the majors would be portrayed by different colors. However, I realized that there would be too many colors displayed, making it difficult for the viewr to read the visualization. Therefore, I decided to use a simpler approach and create a bar chart to display the top 10 majors across colleges with median earning of more than $80,000.
 
 Firstly, I filtered the data by median earnings value, leaving only the colleges with earnings greater than $80,000, which totalled 46 colleges. Then, I added up the percentage of each major to identify the top 10. These were then filtered and displayed in the bar chart.
 
-# Scatter plot: *Name*
+# *Average SAT Score (Midpoint) vs Unemployment Rate* and *Average SAT Score (Midpoint) vs Median Earnings*
 file:`SATchart.js` includes two scatter plots
 
 To determine whether a high SAT score could lead to better employment outcomes, I computed the average Midpoint SAT score across the three subjects: math, verbal, and writing and created a chart that shows the relationship between the average SAT score and unemployment rate. I also created a scatter plot alongside this chart to demonstrate the correlation between SAT scores and future earnings. This would be a useful reference for prospective students.
