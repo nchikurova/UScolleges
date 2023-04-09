@@ -1,14 +1,14 @@
 body {
   /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
   font-family: "Source Sans Pro", sans-serif;
-  padding: 1em 1em;
-  background: rgb(209, 209, 206);
+  /* padding: 0% 0% 0% 0%; */
+  background: rgb(241, 238, 238);
   width: 100%;
   margin: 0%;
 }
 #w-title {
-  background-color: #b7baba;
-  padding: 0;
+  background-color: rgb(241, 238, 238);
+  padding: 5;
   margin: 0;
 
   text-align: center;
@@ -37,9 +37,18 @@ body {
   font-weight: 300;
   text-align: center;
   color: #313738;
-  padding: 4% 0% 4% 0%;
+  padding: 5% 0% 5% 0%;
   font-weight: bold;
 }
+.title-majors {
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
+  color: #313738;
+  padding: 0% 5% 0% 5%;
+  font-weight: bold;
+}
+
 .filter-buttons {
   width: 40%;
   max-width: 200px;
@@ -52,6 +61,9 @@ body {
   border: 1px solid rgb(12, 12, 12);
   outline-color: rgb(7, 7, 7);
   font-weight: 600;
+}
+.filter-buttons:hover {
+  border: 3px solid rgb(12, 12, 12);
 }
 
 rect:hover {
@@ -99,10 +111,20 @@ path.state:hover {
 }
 
 /* Map content*/
+#map-container {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+  border: 1px solid rgb(73, 72, 72);
+}
+#bubble-container {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+  border: 1px solid rgb(73, 72, 72);
+}
 #map-content {
   display: grid;
-  grid-template-columns: 0.1fr 4fr 5fr 0.1fr;
-  column-gap: 3%;
+  grid-template-columns: 0.01fr 5fr 5fr 0.01fr;
+  column-gap: 2%;
   /* width: 90vw; */
   /* height: 60vh; */
 }
@@ -117,10 +139,20 @@ path.state:hover {
 }
 
 /* Barchart content*/
+#barchart-container {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+  border: 1px solid rgb(73, 72, 72);
+}
+#facts {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+  border: 1px solid rgb(73, 72, 72);
+}
 #barchart-content {
   display: grid;
-  grid-template-columns: 0.1fr 5fr 4fr 0.1fr;
-  column-gap: 3%;
+  grid-template-columns: 0.01fr 5fr 5fr 0.01fr;
+  column-gap: 2%;
   /* width: 90vw; */
   /* height: 60vh; */
 }
@@ -133,9 +165,12 @@ path.state:hover {
       "linechart-container";
   }
 }
+.majorsPercentage {
+  margin: 0% 0% 0% 0%;
+}
 #myBtn {
-  width: 40%;
-  max-width: 200px;
+  width: 90%;
+  max-width: 400px;
 
   font-size: 15px;
   background-color: #f8f3f3;
@@ -149,7 +184,32 @@ path.state:hover {
   border-radius: 0%;
   background-color: #c0c0be; */
 }
+#more {
+  display: none;
+}
+#college_list {
+  display: grid;
+  grid-template-columns: 0.1fr 4fr 3fr 0.1fr;
+  column-gap: 3%;
+}
 
+#myBtn:hover {
+  border: 3px solid rgb(12, 12, 12);
+}
+
+#SAT-scores {
+  display: grid;
+  grid-template-columns: 0.01fr 5fr 5fr 0.01fr;
+  column-gap: 0.5%;
+}
+#SAT1-container {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+}
+#SAT2-container {
+  background-color: #ffffff;
+  padding: 5% 5% 5% 5%;
+}
 /*   
   #map-title {
     text-align: center;

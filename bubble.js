@@ -1,8 +1,8 @@
 // CONST and GLOBALS
 
 let margin = { top: 20, bottom: 40, left: 75, right: 40 },
-  width = 400, // - margin.left - margin.right,
-  height = 300 - margin.bottom, // - margin.bottom
+  width = 400,
+  height = 300 - margin.bottom,
   paddingInner = 0.2;
 
 /** these variables allow us to access anything we manipulate in
@@ -25,7 +25,6 @@ let state = {
 // Load data
 
 d3.csv("./data/UScolleges.csv", d3.autoType).then((raw_data) => {
-  // console.log("raw_data", raw_data);
   state.data = raw_data.filter(
     (d) => d.median_debt !== null && d.median_earnings !== null
     //&&
@@ -215,9 +214,6 @@ function init() {
     <strong>Median Earnings: </strong><span>$${formatNumbers(
       d.median_earnings
     )}</span><br>
-    `;
-      text += `
-    <strong>Top 50: </strong><span>$${d.top_50}</span><br>
     `;
       return text;
     });

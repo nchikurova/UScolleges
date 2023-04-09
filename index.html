@@ -26,9 +26,7 @@
         <div id="hover-content"></div>
       </div>
       <div id="bubble-container">
-        <div class="title">
-          The ratio between Median Earnings and Median Debt of a given college
-        </div>
+        <div class="title">Median Earnings vs Median Debt</div>
         <div class="buttons">
           <!-- <label for="dropdown">Choose state </label> -->
           <select id="dropdown" name="dropdown" class="filter-buttons"></select>
@@ -44,72 +42,101 @@
     </div>
     <br />
     <!-- <div id="stackedbar"></div> -->
+
     <div id="barchart-content">
       <div></div>
       <div id="barchart-container">
-        <div class="title">
+        <div class="title-majors">
           Top Majors across the Colleges with the Median Earnings more than
           $80,000
         </div>
       </div>
-      <div id="SAT-container">
-        <div class="title">Title for SAT scores</div>
+
+      <div id="facts">
+        <br />
+        <p style="font-size: 25px" class="majorsPercentage">
+          More than <strong>70%</strong> of the top earning colleges are in
+          <u>Healthcare</u>
+        </p>
+        <p style="font-size: 12px" class="majorsPercentage">
+          <!-- <strong><u>Healthcare:</u></strong> -->
+          <br />
+          <strong>Medical</strong> College of Wisconsin <br />Albany
+          <strong>Medical</strong> College <br />A T Still University of
+          <strong>Health Sciences</strong> <br />
+          West Virginia School of Osteopathic <strong>Medicine</strong>
+          <br />University of Massachusetts <strong>Medical</strong> School
+          Worcester <br />New York <strong>Medical</strong> College
+          <br />Rosalind Franklin University of <strong>Medicine</strong> and
+          Science <br />Philadelphia College of
+          <strong>Osteopathic</strong>
+          <strong>Medicine</strong><br />University of North Texas
+          <strong>Health Science</strong> Center <br />Baylor College of
+          <strong>Medicine</strong><br />
+          Meharry <strong>Medical</strong> College <br />Western University of
+          <strong>Health Sciences</strong><br />
+          SUNY Downstate <strong>Medical</strong> Center <br />Upstate
+          <strong>Medical</strong> University <span id="dots">...</span
+          ><span id="more" style="font-size: 12px">
+            <br />St Louis College of <strong>Pharmacy</strong><br />
+            Helene Fuld College of <strong>Nursing</strong><br />St Pauls School
+            of <strong>Nursing</strong>-Queens <br />
+            St Pauls School of <strong>Nursing</strong>-Staten Island
+            <br />Cochran School of <strong>Nursing</strong> <br />SUNY College
+            of <strong>Optometry</strong><br />
+            Albany College of
+            <strong>Pharmacy and Health Sciences</strong><br />Los Angeles
+            County College of <strong>Nursing and Allied Health</strong
+            ><br />New England College of <strong>Optometry</strong
+            ><br />University of Texas Southwestern
+            <strong>Medical</strong> Center <br />Illinois College of
+            <strong>Optometry</strong><br />Midwestern University-Downers
+            Grove<br />University of California-San Francisco <br />Midwestern
+            University-Glendale<br />
+            MCPHS University <br />Samuel Merritt University<br />
+            Salus University
+            <br />
+
+            University of the Sciences<br />
+            University of Maryland-Baltimore<br /><strong><u>Law:</u></strong
+            ><br />
+            University of California-Hastings College of <strong>Law</strong>
+            <br />Brooklyn <strong>Law</strong> School <br />California Western
+            School of <strong>Law</strong> <br />
+            <strong><u>Business:</u></strong>
+            <br />Harvard University<br />
+            Babson College <br />
+
+            <strong><u>Technology:</u></strong>
+            <br />Stevens Institute of <strong>Technology</strong>
+            <br />Massachusetts Institute of <strong>Technology</strong><br />
+            Rensselaer Hartford Graduate Center Inc <br />Rensselaer
+            <strong>Polytechnic</strong> Institute <br />
+
+            <strong><u>Marine:</u></strong
+            ><br />
+            California Maritime Academy <br />
+            United States Merchant Marine Academy<br />
+            <strong><u>Interdiscipline:</u></strong
+            ><br />Georgetown University <br />Stanford University
+          </span>
+
+          <button onclick="readMore()" id="myBtn">Expand list</button>
+        </p>
       </div>
       <div></div>
     </div>
-    <div>
-      <!-- <p>
-        <span id="dots">...</span
-        ><span id="more">
-          '<strong>Medical</strong> College of Wisconsin', <br />'Albany
-          <strong>Medical</strong> College', <br />'A T Still University of
-          <strong>Health Sciences</strong> ',<br />
-          'West Virginia School of Osteopathic <strong>Medicine</strong>',
-          <br />'University of Massachusetts <strong>Medical</strong> School
-          Worcester', <br />'New York <strong>Medical</strong> College',
-          <br />'Rosalind Franklin University of <strong>Medicine</strong> and
-          Science', <br />'Philadelphia College of <strong>Osteopathic</strong>
-          <strong>Medicine</strong>',<br />'University of North Texas
-          <strong>Health Science</strong> Center', <br />'Baylor College of
-          <strong>Medicine</strong>',<br />
-          'Meharry <strong>Medical</strong> College', <br />'Western University
-          of <strong>Health Sciences</strong>',<br />
-          'SUNY Downstate <strong>Medical</strong> Center', <br />'University of
-          California-San Francisco', <br />'Midwestern University-Downers
-          Grove', <br />'Midwestern University-Glendale',<br />
-          'MCPHS University', <br />'Upstate
-          <strong>Medical</strong> University', <br />'St Louis College of
-          <strong>Pharmacy</strong>',<br />
-          'Samuel Merritt University',<br />
-          'Albany College of
-          <strong>Pharmacy and Health Sciences</strong>',<br />
-          'University of California-Hastings College of Law', <br />'Brooklyn
-          Law School', <br />'Salus University', <br />'Massachusetts Institute
-          of Technology', <br />'United States Merchant Marine Academy',<br />
-          <br />"St Paul's School of Nursing-Queens", <br />'New England College
-          of Optometry', <br />'Cochran School of Nursing', <br />'Harvard
-          University',<br />
-          'SUNY College of Optometry', <br />"St Paul's School of Nursing-Staten
-          Island", <br />'California Western School of Law', <br />'Los Angeles
-          County College of Nursing and Allied Health',<br />
-          'University of the Sciences',<br />
-          'Babson College', <br />'Georgetown University', <br />'Stevens
-          Institute of Technology', <br />'Helene Fuld College of Nursing',<br />
-          'Rensselaer Hartford Graduate Center Inc', <br />'Rensselaer
-          Polytechnic Institute', <br />'University of Texas Southwestern
-          <strong>Medical</strong> Center', <br />'Illinois College of
-          Optometry', 'California Maritime Academy', <br />'Stanford
-          University', <br />'University of Maryland-Baltimore'
-        </span>
-        <button onclick="readMore()" id="myBtn">
-          See list of colleges with the most Median Earnings
-        </button>
-      </p> -->
+    <div class="title">SAT Scores vs Unemployment Rate</div>
+    <div id="SAT-scores">
+      <div></div>
+      <div id="SAT1-container"></div>
+      <div id="SAT2-container"></div>
+      <!-- <div id="SAT3-container"></div> -->
+      <div></div>
     </div>
-    <br /><br /><br />
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://unpkg.com/simple-statistics@7.8.2/dist/simple-statistics.min.js"></script>
+    <!-- <script src="https://unpkg.com/simple-statistics@7.8.2/dist/simple-statistics.min.js"></script> -->
     <!-- <script src="https://d3js.org/d3-array.v2.min.js"></script> -->
     <script src="barchart.js"></script>
     <!-- <script src="stackedbar.js"></script> -->

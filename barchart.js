@@ -167,8 +167,8 @@ d3.csv("./data/majorsTotal.csv", d3.autoType).then((data) => {
   // constants help us reference the same values throughout our code
   let margin = { top: 0, bottom: 100, left: 60, right: 40 },
     width = 400, // - margin.left - margin.right,
-    height = 500 - margin.bottom, // - margin.bottom
-    paddingInner = 0.2;
+    height = 500 - margin.bottom;
+  paddingInner = 0.3;
   // console.log(d3.values(newData[0]).filter((s) => s.includes("major")));
 
   // /** SCALES */
@@ -207,11 +207,8 @@ d3.csv("./data/majorsTotal.csv", d3.autoType).then((data) => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
-
-  let result = toTitleCase("maRy hAd a lIttLe LaMb");
-  console.log(result);
   const formatMajors = (str) =>
-    str.toLowerCase().slice(0, -5).replaceAll("_", " ");
+    str.toLowerCase().slice(0, -10).replaceAll("_", " ");
 
   console.log(formatMajors("architecture_major_perc"));
   // TOOLTIP
@@ -269,11 +266,11 @@ function readMore() {
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
-    btnText.innerHTML = "See the list of colleges";
+    btnText.innerHTML = "Expand list";
     moreText.style.display = "none";
   } else {
     dots.style.display = "none";
-    btnText.innerHTML = "Read less";
+    btnText.innerHTML = "Close list";
     moreText.style.display = "inline";
   }
 }
