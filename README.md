@@ -71,7 +71,7 @@ Lastly, it is important to note that not all colleges require SAT scores, which 
 
 If I had more time, I would create interactive charts that allow users to select different SAT subjects and explore the relationship between unemployment rates and the average SAT scores for each subject. Another approach would be to filter the data by percentiles (25th, midpoint, and 75th) and calculate the average score across all three subjects. This would enable users to examine the relationship between each individual score and unemployment rate.
 
-Additional Data Analysis and Wrangling can be found in [Jupyter Notebook](/data/Wrangling%20College%20dataset.ipynb).
+Additional Data Analysis and Wrangling can be found in this [Jupyter Notebook](/data/Wrangling%20College%20dataset.ipynb).
 
 
 
