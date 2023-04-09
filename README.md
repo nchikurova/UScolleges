@@ -43,7 +43,7 @@ Finally, I colored the US News top 50 data points with red, so the user can see 
 ## Limitations & expectations
 Not each state has colleges from the US News top 50 list. So, there is a chance that user will not see them. To explore more affordable options further, I would need to create another visualization or think about adding some features to this one.
 
-# Bar chart: *Top Majors across the Colleges with the Median Earnings more than $80,000*
+# Bar chart: *Top Majors across Colleges with Median Earnings above $80,000*
 file: `barchart.js`
 
 Initially, I had an idea of creating a stacked bar chart, where each college would be represented as a rectangle and the majors would be portrayed by different colors. However, I realized that there would be too many colors displayed, making it difficult for the viewr to read the visualization. Therefore, I decided to use a simpler approach and create a bar chart to display the top 10 majors across colleges with median earning of more than $80,000.
