@@ -1,6 +1,6 @@
 let margin_map = { top: 20, bottom: 100, left: 75, right: 40 },
-  width_map = 360, // - margin.left - margin.right,
-  height_map = 300 - margin.bottom; // - margin.bottom
+  width_map = 360,
+  height_map = 300 - margin.bottom;
 
 let svg_map;
 let tip_map;
@@ -22,8 +22,6 @@ Promise.all([
   state1.geojson = geojson;
   state1.colleges = colleges;
 
-  //   console.log("state: ", state1);
-
   init_map();
 });
 
@@ -40,23 +38,13 @@ function init_map() {
     .append("g")
     .attr("transform", "translate(0,0)");
 
-  //   console.log(state1.colleges[0].cost);
-  //   console.log(state1.colleges.length);
-  //   console.log(state1.colleges.state);
   const costByState = d3
     .nest()
     .key((d) => d.state)
     .rollup((v) => d3.median(v, (d) => d.cost))
     .entries(state1.colleges);
 
-  //   console.log(costByState);
-
   aveCost = new Map(costByState.map((d) => [d.key, d.value]));
-  //   console.log(aveCost);
-
-  //   const colorScale = d3
-  //     .scaleQuantile([217, 15031]).
-  //     .range(["#aae2e2", "#2D7282"]);
 
   const colorScale = d3
     .scaleLinear()

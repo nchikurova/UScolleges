@@ -68,22 +68,7 @@ d3.csv("./data/top46majors.csv", d3.autoType).then((data) => {
     .attr("class", "axis")
     .attr("transform", `translate(0,${height})`)
     .call(xAxis);
-  // .append("text")
-  // .attr("class", "axis-label")
-  // .attr("x", "60%")
-  // .attr("y", "20")
-  // .text("Institution");
 
-  //   svg
-  //     .append("g")
-  //     .attr("class", "x axis")
-  //     .attr("transform", `translate(0,${height})`)
-  //     .call(xAxis)
-  //     .selectAll("text")
-  //     .attr("y", "10")
-  //     .attr("x", "-5")
-  //     .attr("text-anchor", "end")
-  //     .attr("transform", "rotate(-90)");
   svg
     .append("g")
     .attr("class", "y axis")
@@ -148,7 +133,7 @@ d3.csv("./data/top46majors.csv", d3.autoType).then((data) => {
 
     .attr("width", xScale.bandwidth())
     .attr("height", (d) => yScale(d[0]) - yScale(d[1]))
-    // .attr("fill", (d) => colorScaleBar(d.key))
+
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 });

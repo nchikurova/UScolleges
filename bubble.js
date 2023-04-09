@@ -302,7 +302,7 @@ function draw() {
               return "#a08ab9";
             }
           })
-          .attr("r", 5) //(d) => sizeScale(d.cost))
+          .attr("r", 7) //(d) => sizeScale(d.cost))
           .attr("cx", (d) => xScale_bubble(d.median_debt))
           .attr("cy", (d) => margin.bottom + 150)
           .on("mouseover", tip.show)

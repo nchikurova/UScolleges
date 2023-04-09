@@ -4,6 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>UScolleges</title>
   </head>
   <body>
@@ -27,6 +32,15 @@
       </div>
       <div id="bubble-container">
         <div class="title">Median Earnings vs Median Debt</div>
+        <p>
+          Colleges from
+          <a
+            href="https://www.cbsnews.com/pictures/the-50-best-colleges-by-value-for-2023-ranked/2/"
+            target="_blank"
+            >the US News top 50 list</a
+          >
+          are in <span style="color: red; opacity: 0.8">red</span>
+        </p>
         <div class="buttons">
           <!-- <label for="dropdown">Choose state </label> -->
           <select id="dropdown" name="dropdown" class="filter-buttons"></select>
@@ -47,17 +61,16 @@
       <div></div>
       <div id="barchart-container">
         <div class="title-majors">
-          Top Majors across the Colleges with the Median Earnings more than
-          $80,000
+          Top Majors across Colleges with Median Earnings above $80,000
         </div>
       </div>
 
       <div id="facts">
         <br />
-        <p style="font-size: 25px" class="majorsPercentage">
+        <!-- <p style="font-size: 25px" class="majorsPercentage">
           More than <strong>70%</strong> of the top earning colleges are in
           <u>Healthcare</u>
-        </p>
+        </p> -->
         <p style="font-size: 12px" class="majorsPercentage">
           <!-- <strong><u>Healthcare:</u></strong> -->
           <br />
@@ -66,19 +79,21 @@
           <strong>Health Sciences</strong> <br />
           West Virginia School of Osteopathic <strong>Medicine</strong>
           <br />University of Massachusetts <strong>Medical</strong> School
-          Worcester <br />New York <strong>Medical</strong> College
-          <br />Rosalind Franklin University of <strong>Medicine</strong> and
-          Science <br />Philadelphia College of
-          <strong>Osteopathic</strong>
-          <strong>Medicine</strong><br />University of North Texas
-          <strong>Health Science</strong> Center <br />Baylor College of
-          <strong>Medicine</strong><br />
-          Meharry <strong>Medical</strong> College <br />Western University of
-          <strong>Health Sciences</strong><br />
-          SUNY Downstate <strong>Medical</strong> Center <br />Upstate
-          <strong>Medical</strong> University <span id="dots">...</span
+          Worcester <br />New York <strong>Medical</strong> College <br /><span
+            id="dots"
+            >...</span
           ><span id="more" style="font-size: 12px">
-            <br />St Louis College of <strong>Pharmacy</strong><br />
+            Rosalind Franklin University of <strong>Medicine</strong> and
+            Science <br />Philadelphia College of
+            <strong>Osteopathic</strong>
+            <strong>Medicine</strong><br />University of North Texas
+            <strong>Health Science</strong> Center <br />Baylor College of
+            <strong>Medicine</strong><br />
+            Meharry <strong>Medical</strong> College <br />Western University of
+            <strong>Health Sciences</strong><br />
+            SUNY Downstate <strong>Medical</strong> Center <br />Upstate
+            <strong>Medical</strong> University <br />St Louis College of
+            <strong>Pharmacy</strong><br />
             Helene Fuld College of <strong>Nursing</strong><br />St Pauls School
             of <strong>Nursing</strong>-Queens <br />
             St Pauls School of <strong>Nursing</strong>-Staten Island
@@ -126,13 +141,48 @@
       </div>
       <div></div>
     </div>
-    <div class="title">SAT Scores vs Unemployment Rate</div>
+    <br />
     <div id="SAT-scores">
       <div></div>
-      <div id="SAT1-container"></div>
-      <div id="SAT2-container"></div>
+      <div id="SAT1-container">
+        <div class="title">
+          Average SAT Score (Midpoint) vs Unemployment Rate
+        </div>
+      </div>
+      <div id="SAT2-container">
+        <div class="title">Average SAT Score (Midpoint) vs Median Earnings</div>
+      </div>
       <!-- <div id="SAT3-container"></div> -->
       <div></div>
+    </div>
+    <p class="source" style="text-align: right">
+      Data Source: The College Scorecard
+    </p>
+
+    <div class="media" style="text-align: center">
+      <a
+        title="Welcome to my LinkedIn profile"
+        href="https://www.linkedin.com/in/nadezda-rodriguez-1a3325138/"
+        target="_blank"
+        class="fa fa-linkedin fa-2x"
+      >
+      </a>
+
+      <a
+        title="Welcome to my Github profile"
+        href="https://github.com/nchikurova"
+        target="_blank"
+        class="fa fa-github fa-2x"
+      >
+      </a>
+
+      <a
+        title="Please email me if you have any questions or comments"
+        href="mailto:nadezda.a.rodriguez@gmail.com?subject=Enter the subject"
+        target="_blank"
+        class="fa fa-envelope fa-2x"
+      >
+      </a>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
