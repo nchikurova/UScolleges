@@ -76,5 +76,8 @@ Additional Data Analysis and Wrangling can be found in this [Jupyter Notebook](/
 CODE:
 To make this code cleaner I can rewrite it using classes. In this case, all variables like `svg`, `width`, `height`, `text`, `tip()`, etc. could have the same names and be accessed in local scopes using `this`.
 
+STYLING:
+The `grid` that displays three charts in a single row, instead of the current two would make a dashboard more visually appealing for larger screens.
+
 
 
