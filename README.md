@@ -1,6 +1,6 @@
-# Is College Worth the Debt? Exploring the Value of Higher Education
+# Your College Journey: Mapping Options and Opportunities
 
-Link to the project:
+Link to the project: https://nadezdarodriguez.com/UScolleges/
 
 The following project provides advice and recommendations to a hypothetical high-schooler with limited savings for
 college, who hasn’t committed to a major or type of school, but wants to keep debt to a minimum and pay
