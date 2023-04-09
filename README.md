@@ -23,7 +23,7 @@ I think it is a good start for exploration to have an idea which states are more
 ## Limitations & expectations
 Some of the datapoints are missing, and there are different colleges with both low and very high costs in each state. Therefore, the median costs in each state are closer to each other than I expected. For example, I would expect California to have a higher median cost value than most states; however, the value is only around $12,000 while Vermont's median cost is around $18,000. For deeper analysis of the median cost, we should probably look at the number of colleges in each state and also fill in the null values.
 
-# Scatter plot: *Median Earnings vs Median Debt*
+# Bubble chart: *Median Earnings vs Median Debt*
 file: `bubble.js`
 
 This visualization should help explore the following concerns:
@@ -51,16 +51,23 @@ Initially, I had an idea of creating a stacked bar chart, where each college wou
 Firstly, I filtered the data by median earnings value, leaving only the colleges with earnings greater than $80,000, which totalled 46 colleges. Then, I added up the percentage of each major to identify the top 10. These were then filtered and displayed in the bar chart.
 
 # Scatter plot: *Name*
-file:`SATchart.js`
+file:`SATchart.js` includes two scatter plots
 
+To determine whether a high SAT score could lead to better employment outcomes, I computed the average Midpoint SAT score across the three subjects: math, verbal, and writing and created a chart that shows the relationship between the average SAT score and unemployment rate. I also created a scatter plot alongside this chart to demonstrate the correlation between SAT scores and future earnings. This would be a useful reference for prospective students.
 
-------Keep in mind that correlation does not necessarily imply causation, so even if you find a strong negative correlation between SAT scores and unemployment rate, it does not mean that higher SAT scores directly cause lower unemployment rates. There may be other factors at play that affect both SAT scores and employment outcomes.-----
+The correlation between SAT scores and unemployment rates is generally negative, suggesting that a higher SAT score may increase a student's chances of securing employment after college. Additionally, it appears that Math and Verbal SAT scores have a greater impact on employment status than Writing SAT scores.
 
-If your research question is specifically focused on whether a high SAT score in general is related to better employment outcomes, then calculating the median of the sum of the percentiles for math, verbal, and writing would serve the question best, as it provides a single value for overall SAT score that you can use to explore the relationship with unemployment rate.
+However, correlation does not imply causation. A strong negative correlation between SAT scores and unemployment rates does not necessarily mean that higher SAT scores directly cause lower unemployment rates. Other factors may be at play that affect both SAT scores and employment outcomes.
 
-However, if you want to investigate whether individual SAT scores in math, verbal, or writing are more strongly related to employment outcomes, then using the separate percentiles for each subject would be more appropriate. This approach would allow you to explore the relationship between each individual SAT score and unemployment rate separately, and to compare the strength of these relationships.=============
+Further analysis of this relationship would depend on the research question. If the focus is on whether a higher SAT score in general leads to better employment outcomes, calculating the median of the sum of the percentiles for math, verbal, and writing would be the most relevant approach.
 
-+ not all colleges requite sat scores
+On the other hand, if we want to explore the relationship between each individual SAT score and unemployment rate separately and compare the strength of these relationships, we would need to investigate whether individual SAT scores in math, verbal, or writing are more strongly associated with employment outcomes, using separate percentiles for each subject.
+
+Lastly, it is important to note that not all colleges require SAT scores, which should also be considered when evaluating the relationship between SAT scores and employment outcomes.
+
+## Limitations & extended solution
+
+If I had more time, I would create interactive charts that allow users to select different SAT subjects and explore the relationship between unemployment rates and the average SAT scores for each subject. Another approach would be to filter the data by percentiles (25th, midpoint, and 75th) and calculate the average score across all three subjects. This would enable users to examine the relationship between each individual score and unemployment rate.
 
 # Choosing titles
 
