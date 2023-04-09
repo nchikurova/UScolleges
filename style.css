@@ -1,6 +1,6 @@
 body {
   /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Kanit", sans-serif;
   /* padding: 0% 0% 0% 0%; */
   background: rgb(241, 238, 238);
   width: 100%;
@@ -14,7 +14,7 @@ body {
   text-align: center;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 0.5fr 5fr 0.5fr;
 }
 #intro-title {
   font-size: 40px;
@@ -54,7 +54,7 @@ body {
   max-width: 200px;
 
   font-size: 15px;
-  background-color: #f8f3f3;
+  background-color: rgb(241, 238, 238);
   color: rgb(53, 52, 52);
   padding: 5px;
   margin: 5px 5px 2.5px 0px;
@@ -127,12 +127,12 @@ path.state:hover {
 /* Map content*/
 #map-container {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 #bubble-container {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 #map-content {
@@ -155,12 +155,12 @@ path.state:hover {
 /* Barchart content*/
 #barchart-container {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 #facts {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 #barchart-content {
@@ -187,12 +187,12 @@ path.state:hover {
 }
 #SAT1-container {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 #SAT2-container {
   background-color: #ffffff;
-  padding: 5% 5% 5% 5%;
+  padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
 @media only screen and (max-width: 700px) {
@@ -212,7 +212,7 @@ path.state:hover {
   max-width: 400px;
 
   font-size: 15px;
-  background-color: #f8f3f3;
+  background-color: rgb(241, 238, 238);
   color: rgb(53, 52, 52);
   padding: 5px;
   margin: 5px 5px 2.5px 0px;
@@ -236,17 +236,6 @@ path.state:hover {
   border: 3px solid rgb(12, 12, 12);
 }
 
-/*   
-  #map-title {
-    text-align: center;
-    font-family: 'IBM Plex Serif';
-    font-size: 22px;
-    font-weight: 700;
-    padding: 5% 0% 0% 0%; 
-  } */
-/* #map-container{
-    grid-area: 'map-container'
-  } */
 /* ICONS */
 /* source: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp*/
 .fa {

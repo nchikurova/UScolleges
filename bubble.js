@@ -13,7 +13,7 @@ let xScale_bubble;
 let yScale_bubble;
 let xAxis;
 let yAxis;
-let tip;
+let tip_b;
 
 // Aplication state
 let state = {
@@ -167,6 +167,27 @@ function init() {
     .attr("viewBox", "0 0 400 300")
     .attr("transform", "translate(0,0)");
 
+  // grids
+  svg_bubble
+    .append("line")
+    .attr("stroke", "black")
+    .attr("stroke-width", "1px")
+    .style("stroke-dasharray", "4, 3")
+    .attr("x1", margin.left)
+    .attr("y1", height / 2)
+    .attr("x2", width - margin.right)
+    .attr("y2", height / 2);
+
+  svg_bubble
+    .append("line")
+    .attr("stroke", "black")
+    .attr("stroke-width", "1px")
+    .style("stroke-dasharray", "4, 3")
+    .attr("x1", width / 2 + 20)
+    .attr("y1", margin.top)
+    .attr("x2", width / 2 + 20)
+    .attr("y2", height);
+
   // add the xAxis
   svg_bubble
     .append("g")
@@ -194,14 +215,14 @@ function init() {
   // TOOLTIP
 
   const formatNumbers = d3.format(",.2f");
-  tip = d3
+  tip_b = d3
     .tip()
     .attr("class", "d3-tip")
     .html((d) => {
       let text = `<strong>Location: </strong><span 
     style='color':'black'>${d.state}</span><br>`;
       text += `
-    <strong>Institution Name: </strong><span>${d.institution_name}</span><br>`;
+    <strong>Institution: </strong><span>${d.institution_name}</span><br>`;
       text += `
     <strong>Cost: </strong><span> $${formatNumbers(d.cost)}</span><br>
     `;
@@ -217,7 +238,7 @@ function init() {
     `;
       return text;
     });
-  svg_bubble.call(tip);
+  svg_bubble.call(tip_b);
   draw();
   // calls the draw function
 }
@@ -305,8 +326,8 @@ function draw() {
           .attr("r", 7) //(d) => sizeScale(d.cost))
           .attr("cx", (d) => xScale_bubble(d.median_debt))
           .attr("cy", (d) => margin.bottom + 150)
-          .on("mouseover", tip.show)
-          .on("mouseout", tip.hide)
+          .on("mouseover", tip_b.show)
+          .on("mouseout", tip_b.hide)
           // initial value - to be transitioned
           .call((enter) =>
             enter
