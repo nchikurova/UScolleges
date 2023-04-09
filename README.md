@@ -40,6 +40,8 @@ So, the next step was to sort data by the amount of debt. I think there are just
 
 Finally, I colored the US News top 50 data points with red, so the user can see other colleges next to these data points that could be more affordable with the same potential income.
 
+*The link to the US News top 50 colleges shows best colleges of 2023, as an example.
+
 ## Limitations & expectations
 Not each state has colleges from the US News top 50 list. So, there is a chance that user will not see them. To explore more affordable options further, I would need to create another visualization or think about adding some features to this one.
 
@@ -69,9 +71,7 @@ Lastly, it is important to note that not all colleges require SAT scores, which 
 
 If I had more time, I would create interactive charts that allow users to select different SAT subjects and explore the relationship between unemployment rates and the average SAT scores for each subject. Another approach would be to filter the data by percentiles (25th, midpoint, and 75th) and calculate the average score across all three subjects. This would enable users to examine the relationship between each individual score and unemployment rate.
 
-# Choosing titles
-
-For the title of the project I chose a question which I beileve will catch the viewer's attention. However, for the visualizations, I selected titles that are clear, concise, and effectively communicate the main message of each visualization, while still leaving it open-ended.
+Additional Data Analysis and Wrangling can be found in [Jupyter Notebook](/data/Wrangling%20College%20dataset.ipynb).
 
 
 
