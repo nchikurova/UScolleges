@@ -8,7 +8,6 @@ d3.csv("./data/majors.csv", d3.autoType).then((data) => {
     width = 300, // - margin.left - margin.right,
     height = 280; //- margin.bottom;
   paddingInner = 0.2;
-  // console.log(d3.values(newData[0]).filter((s) => s.includes("major")));
 
   // /** SCALES */
 
@@ -91,11 +90,9 @@ d3.csv("./data/majors.csv", d3.autoType).then((data) => {
     .join("text")
     .attr("class", "majors_label")
     .attr("text-anchor", "end")
-    // this allows us to position the text in the center of the bar
     .attr("y", (d) => yScale(d.majors) + 15)
     .text((d) => toTitleCase(formatMajors(d.majors)))
     .attr("x", (d) => margin.left + width / 3 - 10);
-  // .attr("dy", "1.8em"); // margin.left + width / 3 - 10);
 });
 
 // adding button 'Read more' source:

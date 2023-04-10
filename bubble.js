@@ -6,8 +6,7 @@ let margin = { top: 20, bottom: 40, left: 75, right: 40 },
   paddingInner = 0.2;
 
 /** these variables allow us to access anything we manipulate in
- * init() but need access to in draw().
- * All these variables are empty before we assign something to them.*/
+ * init() but need access to in draw().*/
 let svg_bubble;
 let xScale_bubble;
 let yScale_bubble;
@@ -23,13 +22,9 @@ let state = {
 };
 
 // Load data
-
 d3.csv("./data/UScolleges.csv", d3.autoType).then((raw_data) => {
   state.data = raw_data.filter(
     (d) => d.median_debt !== null && d.median_earnings !== null
-    //&&
-    //   d.median_debt <= 20000 &&
-    //   d.median_earnings >= 50000
   );
   init();
 });
@@ -77,8 +72,7 @@ function init() {
   // DATA FOR SELECTED ELEMENTS
 
   //   .data([
-  //     ...Array.from(new Set(state.data.map(d => d.apt_type))),
-  //     default_selection,
+  //     ...Array.from(new Set(state.data.map(d => d.state)))
   // ])
 
   selectElement
@@ -142,7 +136,7 @@ function init() {
       "Puerto Rico",
       "United States Minor Outlying Islands",
       "U.S. Virgin Islands",
-    ]) // unique data values-- (hint: to do this programmatically take a look `Sets`)
+    ]) // unique data values
     .join("option")
     .attr("value", (d) => d)
     .text((d) => d);
@@ -208,10 +202,11 @@ function init() {
     .call(yAxis)
     .append("text")
     .attr("class", "axis-label")
-    .attr("y", "50%") //in the middle of line
+    .attr("y", "50%")
     .attr("dx", "-4em")
     .attr("writing-mode", "vertical-rl")
     .text("Median Earnings");
+
   // TOOLTIP
 
   const formatNumbers = d3.format(",.2f");
@@ -248,7 +243,6 @@ function init() {
  * we call this everytime there is an update to the data/state
  * */
 
-//"$10,000 - $20,000", "$20,000 - $50,000", "< $50,000"])
 function draw() {
   // filter the data for the selectedParty
   let filteredData = state.data;
@@ -323,7 +317,7 @@ function draw() {
               return "#a08ab9";
             }
           })
-          .attr("r", 7) //(d) => sizeScale(d.cost))
+          .attr("r", 7)
           .attr("cx", (d) => xScale_bubble(d.median_debt))
           .attr("cy", (d) => margin.bottom + 150)
           .on("mouseover", tip_b.show)
@@ -332,7 +326,6 @@ function draw() {
           .call((enter) =>
             enter
               .transition() // initialize transition
-              //.delay()// delay on each element
               .duration(1200) // duration 500ms
               .attr("cy", (d) => yScale_bubble(d.median_earnings))
           ),

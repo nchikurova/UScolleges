@@ -20,7 +20,6 @@ body {
   font-weight: 700;
   line-height: 50px;
   color: #2e2d2d;
-  /* color: rgb(209, 209, 206); */
   padding: 3% 0% 2% 0%;
 }
 #intro-title2 {
@@ -33,21 +32,12 @@ body {
 
 .title {
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   color: #313738;
-  padding: 5% 0% 5% 0%;
+  padding: 0% 5% 2% 5%;
   font-weight: bold;
 }
-.title-majors {
-  font-size: 25px;
-  font-weight: 300;
-  text-align: center;
-  color: #313738;
-  padding: 0% 5% 0% 5%;
-  font-weight: bold;
-}
-
 .filter-buttons {
   width: 50%;
   max-width: 200px;
@@ -67,37 +57,25 @@ body {
 
 rect:hover {
   fill: rgb(76, 53, 84);
-  /* opacity: 0.5; */
 }
+
 rect {
   border: 1px solid rgb(12, 12, 12);
 }
 
 .dot:hover {
-  /* fill: rgb(33, 40, 42); */
   opacity: 1;
 }
 
-.axis-label {
-  font-size: 12px;
-  font-weight: 300;
-  fill: black;
-  text-anchor: middle;
-}
-
-.axis-label2 {
-  font-size: 12px;
-  font-weight: 300;
-  fill: black;
-  text-anchor: middle;
-}
-
+.axis-label,
+.axis-label2,
 .axis-label3 {
   font-size: 12px;
   font-weight: 300;
   fill: black;
   text-anchor: middle;
 }
+
 .d3-tip {
   position: absolute;
   text-align: left;
@@ -124,6 +102,11 @@ path.state:hover {
 }
 
 /* Map content*/
+#map-content {
+  display: grid;
+  grid-template-columns: 0.01fr 5fr 5fr 0.01fr;
+  column-gap: 2%;
+}
 #map-container {
   background-color: #ffffff;
   padding: 3% 3% 3% 3%;
@@ -134,14 +117,8 @@ path.state:hover {
   padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
-#map-content {
-  display: grid;
-  grid-template-columns: 0.01fr 5fr 5fr 0.01fr;
-  column-gap: 2%;
-  /* width: 90vw; */
-  /* height: 60vh; */
-}
-@media only screen and (max-width: 700px) {
+
+@media only screen and (max-width: 800px) {
   #map-content {
     grid-template-columns: 1fr;
     padding: 2em 3em;
@@ -152,12 +129,17 @@ path.state:hover {
 }
 
 /* Barchart content*/
+#barchart-content {
+  display: grid;
+  grid-template-columns: 0.01fr 4fr 2fr 0.01fr;
+  column-gap: 2%;
+}
 #barchart-container {
   background-color: #ffffff;
   padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
-#facts {
+#list {
   background-color: #ffffff;
   padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
@@ -166,10 +148,8 @@ path.state:hover {
   display: grid;
   grid-template-columns: 0.01fr 4fr 2fr 0.01fr;
   column-gap: 2%;
-  /* width: 90vw; */
-  /* height: 60vh; */
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   #barchart-content {
     grid-template-columns: 1fr;
     padding: 2em 3em;
@@ -182,7 +162,6 @@ path.state:hover {
   display: grid;
   grid-template-columns: 0.01fr 4fr 4fr 0.01fr;
   column-gap: 2%;
-  /* padding: 5% 0% 5% 0%; */
 }
 #SAT1-container {
   background-color: #ffffff;
@@ -194,7 +173,7 @@ path.state:hover {
   padding: 3% 3% 3% 3%;
   border: 1px solid rgb(73, 72, 72);
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   #SAT-scores {
     grid-template-columns: 1fr;
     padding: 2em 3em;
@@ -209,7 +188,6 @@ path.state:hover {
 #myBtn {
   width: 90%;
   max-width: 400px;
-
   font-size: 15px;
   background-color: rgb(241, 238, 238);
   color: rgb(53, 52, 52);
@@ -218,9 +196,6 @@ path.state:hover {
   border: 1px solid rgb(12, 12, 12);
   outline-color: rgb(7, 7, 7);
   font-weight: 600;
-  /* border-style: solid;
-  border-radius: 0%;
-  background-color: #c0c0be; */
 }
 #more {
   display: none;
